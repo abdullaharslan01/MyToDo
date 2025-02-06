@@ -13,6 +13,7 @@
 		F5887C3D2D53754A00746AD0 /* OnboardingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5887C3C2D53754A00746AD0 /* OnboardingStep.swift */; };
 		F5887C502D53970700746AD0 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5887C4F2D53970700746AD0 /* RootView.swift */; };
 		F5887C522D53980400746AD0 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5887C512D53980400746AD0 /* Router.swift */; };
+		F5C2A4912D551A00004547AD /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C2A4902D551A00004547AD /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		F5887C3C2D53754A00746AD0 /* OnboardingStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStep.swift; sourceTree = "<group>"; };
 		F5887C4F2D53970700746AD0 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		F5887C512D53980400746AD0 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		F5C2A4902D551A00004547AD /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				F5887C3C2D53754A00746AD0 /* OnboardingStep.swift */,
+				F5C2A4902D551A00004547AD /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			files = (
 				F5887C3D2D53754A00746AD0 /* OnboardingStep.swift in Sources */,
 				F5887C342D53713F00746AD0 /* ToDoListApp.swift in Sources */,
+				F5C2A4912D551A00004547AD /* Category.swift in Sources */,
 				F5887C522D53980400746AD0 /* Router.swift in Sources */,
 				F5887C502D53970700746AD0 /* RootView.swift in Sources */,
 			);
