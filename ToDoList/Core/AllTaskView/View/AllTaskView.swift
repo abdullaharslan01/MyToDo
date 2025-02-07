@@ -9,23 +9,9 @@ import SwiftUI
 
 struct AllTaskView: View {
 
-    var currentDate: Date = .now
-
-    var allTodos: [TodoItem]
-
-    var complated: [TodoItem]
-    var unComplated: [TodoItem]
-
-    @State var addNewTaskScreenState: Bool = false
-
-    init(currentDate: Date, allTodos: [TodoItem]) {
-        self.currentDate = currentDate
-        self.allTodos = allTodos
-        self.complated = allTodos.filter { $0.isCompleted == true
-        }
-        self.unComplated = allTodos.filter { $0.isCompleted == false
-        }
-    }
+    @State var vm = AllTaskViewModel()
+    
+  
 
     var headerView: some View {
         Image("allTaskHeader")
@@ -46,7 +32,7 @@ struct AllTaskView: View {
 
                 }.frame(maxWidth: .infinity, alignment: .leading)
 
-                Text(self.currentDate.formattedWithDate())
+                Text(vm.currentDate.formattedWithDate())
                     .font(.title3)
                     .fontWeight(.semibold)
                     .frame(maxWidth: .infinity, alignment: .center)
@@ -82,7 +68,7 @@ struct AllTaskView: View {
                 List {
 
                     Section {
-                        ForEach(self.unComplated) { toDoItem in
+                        ForEach(vm.unComplated) { toDoItem in
                             TodoItemView(toDoItem: toDoItem) {
                                 print("Clicked \(toDoItem.title)")
                             }
@@ -93,7 +79,7 @@ struct AllTaskView: View {
 
                     Section {
 
-                        ForEach(self.complated) { toDoItem in
+                        ForEach(vm.complated) { toDoItem in
                             TodoItemView(toDoItem: toDoItem) {}
                                 .cornerRadius(10)
                                 .makeListRowItem()
@@ -112,11 +98,11 @@ struct AllTaskView: View {
             }.safeAreaInset(edge: .bottom, content: {
 
                 MainButtonView("Add New Task") {
-                    self.addNewTaskScreenState.toggle()
+                    vm.addNewTaskScreenState.toggle()
                 }.padding(.horizontal)
 
             })
-            .navigationDestination(isPresented: $addNewTaskScreenState) {
+            .navigationDestination(isPresented: $vm.addNewTaskScreenState) {
                 AddNewTaskView().navigationBarBackButtonHidden()
             }
 
@@ -127,24 +113,10 @@ struct AllTaskView: View {
     }
 }
 
-struct ListRowViewModifier: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .padding(.horizontal)
-            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 5))
-            .listRowBackground(Color.white)
-    }
 
-}
-
-extension View {
-    func makeListRowItem() -> some View {
-        self.modifier(ListRowViewModifier())
-    }
-}
 
 #Preview {
     NavigationStack {
-        AllTaskView(currentDate: .now, allTodos: TodoItem.sampleData)
+        AllTaskView()
     }
 }

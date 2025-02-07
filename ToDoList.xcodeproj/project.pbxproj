@@ -35,6 +35,11 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		F57AD1A82D5606F000D8916D /* Modifilers */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Modifilers;
+			sourceTree = "<group>";
+		};
 		F5887C362D53717100746AD0 /* View */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = View;
@@ -173,6 +178,7 @@
 		F5887C312D53713F00746AD0 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				F57AD1A82D5606F000D8916D /* Modifilers */,
 				F57AD1A12D55E75500D8916D /* Extensions */,
 				F5887C262D53713F00746AD0 /* App */,
 				F5887C272D53713F00746AD0 /* SharedComponents */,
@@ -211,6 +217,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				F57AD1A12D55E75500D8916D /* Extensions */,
+				F57AD1A82D5606F000D8916D /* Modifilers */,
 				F5887C362D53717100746AD0 /* View */,
 				F5887C452D53881B00746AD0 /* View */,
 				F5887C4C2D53958000746AD0 /* Buttons */,
