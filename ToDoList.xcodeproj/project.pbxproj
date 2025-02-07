@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F57AD19C2D55E13400D8916D /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57AD19B2D55E13400D8916D /* ToDoItem.swift */; };
 		F5887C322D53713F00746AD0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5887C2C2D53713F00746AD0 /* Preview Assets.xcassets */; };
 		F5887C332D53713F00746AD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5887C2E2D53713F00746AD0 /* Assets.xcassets */; };
 		F5887C342D53713F00746AD0 /* ToDoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5887C252D53713F00746AD0 /* ToDoListApp.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F57AD19B2D55E13400D8916D /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		F5887C0D2D5364AC00746AD0 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5887C252D53713F00746AD0 /* ToDoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListApp.swift; sourceTree = "<group>"; };
 		F5887C2C2D53713F00746AD0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -28,6 +30,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		F57AD1A12D55E75500D8916D /* Extensions */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		F5887C362D53717100746AD0 /* View */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = View;
@@ -41,6 +48,11 @@
 		F5887C4C2D53958000746AD0 /* Buttons */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		F5A4F6F82D551F8400B9D8B3 /* AllTaskView */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AllTaskView;
 			sourceTree = "<group>";
 		};
 		F5C2A45D2D54C57E004547AD /* TextFields */ = {
@@ -95,14 +107,14 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		F5887C272D53713F00746AD0 /* Components */ = {
+		F5887C272D53713F00746AD0 /* SharedComponents */ = {
 			isa = PBXGroup;
 			children = (
 				F5C2A45E2D54C586004547AD /* Other */,
 				F5C2A45D2D54C57E004547AD /* TextFields */,
 				F5887C4C2D53958000746AD0 /* Buttons */,
 			);
-			path = Components;
+			path = SharedComponents;
 			sourceTree = "<group>";
 		};
 		F5887C282D53713F00746AD0 /* Login */ = {
@@ -133,6 +145,7 @@
 		F5887C2B2D53713F00746AD0 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				F5A4F6F82D551F8400B9D8B3 /* AllTaskView */,
 				F5C2A4692D54C64C004547AD /* AddNewTask */,
 				F5887C2A2D53713F00746AD0 /* Root */,
 				F5887C292D53713F00746AD0 /* Onboarding */,
@@ -160,8 +173,9 @@
 		F5887C312D53713F00746AD0 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				F57AD1A12D55E75500D8916D /* Extensions */,
 				F5887C262D53713F00746AD0 /* App */,
-				F5887C272D53713F00746AD0 /* Components */,
+				F5887C272D53713F00746AD0 /* SharedComponents */,
 				F5887C2B2D53713F00746AD0 /* Core */,
 				F5887C3B2D53733800746AD0 /* Model */,
 				F5887C2D2D53713F00746AD0 /* Preview Content */,
@@ -175,6 +189,7 @@
 			children = (
 				F5887C3C2D53754A00746AD0 /* OnboardingStep.swift */,
 				F5C2A4902D551A00004547AD /* Category.swift */,
+				F57AD19B2D55E13400D8916D /* ToDoItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -195,9 +210,11 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				F57AD1A12D55E75500D8916D /* Extensions */,
 				F5887C362D53717100746AD0 /* View */,
 				F5887C452D53881B00746AD0 /* View */,
 				F5887C4C2D53958000746AD0 /* Buttons */,
+				F5A4F6F82D551F8400B9D8B3 /* AllTaskView */,
 				F5C2A45D2D54C57E004547AD /* TextFields */,
 				F5C2A45E2D54C586004547AD /* Other */,
 				F5C2A4692D54C64C004547AD /* AddNewTask */,
@@ -264,6 +281,7 @@
 				F5887C342D53713F00746AD0 /* ToDoListApp.swift in Sources */,
 				F5C2A4912D551A00004547AD /* Category.swift in Sources */,
 				F5887C522D53980400746AD0 /* Router.swift in Sources */,
+				F57AD19C2D55E13400D8916D /* ToDoItem.swift in Sources */,
 				F5887C502D53970700746AD0 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

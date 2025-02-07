@@ -20,7 +20,7 @@ struct CategoryIconView: View {
             
             ZStack {
                 Circle()
-                    .fill(categoryItem.color)
+                    .fill(categoryItem.color.color)
                     .frame(width: 48, height: 48)
                     .overlay {
                         Circle()

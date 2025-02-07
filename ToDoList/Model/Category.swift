@@ -6,18 +6,38 @@
 //
 
 import SwiftUI
-struct Category: Identifiable, Hashable {
+struct Category: Identifiable, Hashable, Codable {
     let id: String
     let name: String
     let iconName: String
-    let color: Color
-    init(id: String, name: String, iconName: String, color: Color) {
+    let color: CategoryColor
+    init(id: String, name: String, iconName: String, color: CategoryColor) {
         self.id = id
         self.name = name
         self.iconName = iconName
         self.color = color
     }
 }
+
+enum CategoryColor: Codable, Hashable {
+    case task
+    case event
+    case goal
+    
+    var color: Color {
+        switch self {
+        case .task:
+            return .task
+        case .event:
+            return .event
+        case .goal:
+            return .goal
+        }
+    }
+    
+}
+
+
 
 extension Category {
     static let allCategory: [Category] = [

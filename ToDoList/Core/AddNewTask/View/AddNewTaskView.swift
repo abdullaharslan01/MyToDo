@@ -36,11 +36,11 @@ struct AddNewTaskView: View {
     var selectDateTimeSection: some View {
         HStack {
                             
-            SelectDateTimeMenuView(title: "Date", subTitle: vm.formatedDate, imageName: "calendarDate") {
+            SelectDateTimeMenuView(title: "Date", subTitle: vm.userSelectedDate.formattedWithDate(), imageName: "calendarDate") {
                 vm.isShowingDatePicker.toggle()
             }
                                 
-            SelectDateTimeMenuView(title: "Time", subTitle: vm.timeFormateDate, imageName: "calendarTime") {
+            SelectDateTimeMenuView(title: "Time", subTitle: vm.userSelectedDate.formattedWithTime(), imageName: "calendarTime") {
                 vm.isShowingTimePicker.toggle()
             }
                             
