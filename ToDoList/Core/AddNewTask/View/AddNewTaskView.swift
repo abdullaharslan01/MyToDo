@@ -7,10 +7,20 @@
 
 import SwiftUI
 
+enum FieldState: Hashable {
+    case title
+    case note
+}
+
 struct AddNewTaskView: View {
     
     @Environment(\.dismiss) var dismiss
     @State var vm = AddNewTaskViewModel()
+    @State private var keyboardSpace: CGFloat = 0
+    
+    @State private var scrollPosition = ScrollPosition()
+        
+    @FocusState var focused: FieldState?
     
     var headerView: some View {
         HeaderView(title: "Add New Task", systemImageName: "xmark") {
@@ -25,6 +35,7 @@ struct AddNewTaskView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                             
             TextField("Task Title", text: $vm.taskTitle)
+                .focused($focused, equals: .title)
                 .padding()
                 .frame(height: 55)
                 .background(Color.white, in: .rect(cornerRadius: 6))
@@ -72,12 +83,23 @@ struct AddNewTaskView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                             
             TextEditor(text: $vm.notes)
+                .focused($focused, equals: .note)
                 .padding()
+                .autocorrectionDisabled()
                 .foregroundStyle(.tdPrimaryText)
                 .textEditorStyle(.plain)
                 .frame(height: 250)
                 .background(Color.white)
                 .clipShape(.rect(cornerRadius: 6))
+                .toolbar {
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Spacer()
+                        Button("Done") {
+                            focused = nil
+                            scrollPosition.scrollTo(y: 0)
+                        }
+                    }
+                }
         }
     }
     
@@ -85,19 +107,38 @@ struct AddNewTaskView: View {
         VStack(spacing: 20) {
             headerView
        
-            VStack(spacing: 20) {
-                taskTitleSection
-                cateegorySection
-                selectDateTimeSection
-                addNoteSection
-                
-            }
+            ScrollView {
+                VStack(spacing: 20) {
+                    taskTitleSection
+                    cateegorySection
+                    selectDateTimeSection
+                  
+                    addNoteSection
+                           
+                    Rectangle()
+                        .fill(.clear)
+                        
+                        .frame(height: focused == nil ? 1 : 300)
+                        
+                }.ignoresSafeArea(.keyboard)
+                    .scrollTargetLayout()
+            }.scrollPosition($scrollPosition)
+                .animation(.default, value: scrollPosition)
+                .scrollIndicators(.hidden)
+                .onChange(of: focused) { _, newValue in
+                    if newValue == .note {
+                        withAnimation {
+                            scrollPosition.scrollTo(y: 250)
+                        }
+                    }
+                }
             
-            Spacer()
-            
-            MainButtonView("Save") {}
-                
         }.background(.page)
+            
+            .safeAreaInset(edge: .bottom, content: {
+                MainButtonView("Save") {}
+                    .padding(.vertical, 50)
+            })
             .ignoresSafeArea()
             .padding(.horizontal)
             .sheet(isPresented: $vm.isShowingDatePicker) {
