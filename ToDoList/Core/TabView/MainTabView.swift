@@ -12,32 +12,13 @@ struct MainTabView: View {
     @Binding var selectedMenu: SideMenuOptionModel
     @Binding var showMenu: Bool
     
-    
+    @Environment(Router.self) private var router
     
     var body: some View {
         ZStack {
-                        
-            TabView(selection: $selectedMenu) {
-                            
-                HomeView(presentSideMenu: $showMenu)
-                    .tag(SideMenuOptionModel.all)
-                            
-                AddNewTaskView()
-                    .tag(SideMenuOptionModel.add)
-                            
-                SettignsView()
-                    .tag(SideMenuOptionModel.settigns)
-                            
-                HelpView()
-                    .tag(SideMenuOptionModel.help)
-                            
-                TellAFriendView()
-                    .tag(SideMenuOptionModel.tell)
-                            
-            }
-                        
-            SideBarMenuView(isShowing: $showMenu, selectedOption: $selectedMenu)
-                        
+           
+            
+               
         }
     }
 }

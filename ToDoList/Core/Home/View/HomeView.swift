@@ -10,9 +10,9 @@ import SwiftUI
 struct HomeView: View {
 
     @State var vm = AllTaskViewModel()
-    
+
     @Environment(Router.self) private var router
-    
+
     @Binding var presentSideMenu: Bool
 
     var headerView: some View {
@@ -48,7 +48,6 @@ struct HomeView: View {
                     .resizable()
                     .frame(width: 40, height: 40)
                     .clipShape(.circle)
-                   
 
             }.foregroundStyle(.page)
                 .padding(.horizontal)
@@ -64,55 +63,52 @@ struct HomeView: View {
 
     var body: some View {
 
-        NavigationStack {
-            VStack {
-                ZStack {
-                    self.headerView
-                    self.headerSection
+        VStack {
+            ZStack {
+                self.headerView
+                self.headerSection
 
-                }
+            }
 
-                List {
+            List {
 
-                    Section {
-                        ForEach(vm.unComplated) { toDoItem in
-                            TodoItemView(toDoItem: toDoItem) {}
-                                .makeListRowItem()
+                Section {
+                    ForEach(vm.unComplated) { toDoItem in
+                        TodoItemView(toDoItem: toDoItem) {}
+                            .makeListRowItem()
 
-                        }
-                    }.clipShape(.rect(cornerRadius: 20))
+                    }
+                }.clipShape(.rect(cornerRadius: 20))
 
-                    Section {
+                Section {
 
-                        ForEach(vm.complated) { toDoItem in
-                            TodoItemView(toDoItem: toDoItem) {}
-                                .cornerRadius(10)
-                                .makeListRowItem()
+                    ForEach(vm.complated) { toDoItem in
+                        TodoItemView(toDoItem: toDoItem) {}
+                            .cornerRadius(10)
+                            .makeListRowItem()
 
-                        }
-
-                    } header: {
-                        Text("Completed Tasks").foregroundStyle(.tdBody)
                     }
 
-                }.listStyle(.insetGrouped)
-                    .scrollContentBackground(.hidden)
-                    .offset(y: -70)
-                    .refreshable {}
-                    .ignoresSafeArea(edges:.bottom)
+                } header: {
+                    Text("Completed Tasks").foregroundStyle(.tdBody)
+                }
 
-            }.safeAreaInset(edge: .bottom, content: {
+            }.listStyle(.insetGrouped)
+                .scrollContentBackground(.hidden)
+                .offset(y: -70)
+                .refreshable {}
+                .ignoresSafeArea(edges: .bottom)
 
-                MainButtonView("Add New Task") {
-                    router.navigate(to: .addToDo)
-                }.padding(.horizontal)
+        }.safeAreaInset(edge: .bottom, content: {
 
-            })
-           
+            MainButtonView("Add New Task") {
+                router.navigate(to: .addToDo)
+            }.padding(.horizontal)
 
-            .background(.page)
-            .ignoresSafeArea(edges: .top)
-        }
+        })
+
+        .background(.page)
+        .ignoresSafeArea(edges: .top)
 
     }
 }
@@ -121,6 +117,6 @@ struct HomeView: View {
     NavigationStack {
         HomeView(presentSideMenu: .constant(false))
             .environment(Router())
-            
+
     }
 }

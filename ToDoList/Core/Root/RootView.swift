@@ -13,7 +13,7 @@ struct RootView: View {
     
     @AppStorage("isUserLogIn") var isUserLogIn: Bool = false
     
-    @State var selectedMenu: SideMenuOptionModel = .all
+    @State var selectedMenuOption: SideMenuOptionModel = .all
     @State var showMenu: Bool = false
 
     var body: some View {
@@ -24,7 +24,22 @@ struct RootView: View {
             ZStack {
 
                 if isUserLogIn {
-                    MainTabView(selectedMenu: $selectedMenu, showMenu: $showMenu)
+                    
+                    ZStack {
+
+                        HomeView(presentSideMenu: $showMenu)
+                        
+                        SideBarMenuView(isShowing: $showMenu, selectedOption: $selectedMenuOption)
+                    }.onChange(of: selectedMenuOption) { oldValue, newValue in
+                        switch newValue {
+                        case .all : router.navigateHome()
+                        case .add : router.navigate(to: .addToDo)
+                        case .help: router.navigate(to: .helpAndFeedBack)
+                        case .settigns: router .navigate(to: .settings)
+                        case .tell: router.navigate(to: .tellAFriend)
+                        }
+                    }
+                    
                 } else {
                     OnboardView()
                 }
