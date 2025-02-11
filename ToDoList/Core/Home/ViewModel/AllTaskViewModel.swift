@@ -14,7 +14,6 @@ class AllTaskViewModel {
     var complated: [TodoItem]
     var unComplated: [TodoItem]
 
-    var addNewTaskScreenState: Bool = false
 
     init() {
         self.currentDate = .now

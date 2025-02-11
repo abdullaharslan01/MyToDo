@@ -9,6 +9,8 @@ import SwiftUI
 
 struct OnboardView: View {
     
+    @Environment(Router.self) private var router
+    
     var onboardingData = onboardingSteps
     
     @State var currentPage: Int = 0
@@ -33,10 +35,12 @@ struct OnboardView: View {
                         withAnimation(.easeInOut(duration: 0.3)) {
                             if currentPage < onboardingData.count - 1 {
                                 currentPage += 1
+                            } else if currentPage == onboardingData.count - 1 {
+                                goToLoginView()
                             }
                         }
                     } label: {
-                                        
+                                         
                         ZStack {
                             Circle()
                                 .fill(.tdPrimary)
@@ -51,6 +55,7 @@ struct OnboardView: View {
                     Button {
                         withAnimation(.easeInOut) {
                             currentPage = onboardingData.count - 1
+                            goToLoginView()
                         }
                     } label: {
                         Text("Skip")
@@ -95,10 +100,15 @@ struct OnboardView: View {
             .background(.white)
             
     }
+    
+    func goToLoginView(){
+        router.navigate(to: .signIn)
+    }
 }
 
 #Preview {
     OnboardView()
+        .environment(Router())
 }
 
 

@@ -11,6 +11,10 @@ struct SignInView: View {
     @State var mailField = ""
     @State var passwordField = ""
     
+    @AppStorage("isUserLogIn")  var isUserLogIn: Bool?
+    
+    @Environment(Router.self) private var router
+    
     var body: some View {
         
         VStack(spacing: 30) {
@@ -34,7 +38,10 @@ struct SignInView: View {
                 
             }
             
-            MainButtonView("Sign In") {}
+            MainButtonView("Sign In") {
+                isUserLogIn = true
+                router.navigateHome()
+            }
             
             Text("Or sign in with")
                 .font(.callout)
@@ -51,7 +58,9 @@ struct SignInView: View {
                 Text("Already have an account?")
                     .foregroundStyle(.tdGray)
 
-                Button {} label: {
+                Button {
+                    router.navigate(to: .signUp)
+                } label: {
                     Text("Sign Up")
                         .foregroundStyle(.tdSecondary)
                         .bold()
@@ -66,4 +75,5 @@ struct SignInView: View {
 
 #Preview {
     SignInView()
+        .environment(Router())
 }

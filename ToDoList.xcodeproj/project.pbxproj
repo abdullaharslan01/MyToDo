@@ -7,29 +7,76 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F552BFFC2D5B394900A405FC /* SidebarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552BFFB2D5B394900A405FC /* SidebarItem.swift */; };
+		F552C08D2D5B495600A405FC /* CategoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0652D5B495600A405FC /* CategoryIconView.swift */; };
+		F552C08E2D5B495600A405FC /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0662D5B495600A405FC /* HeaderView.swift */; };
+		F552C08F2D5B495600A405FC /* SelectDateTimeMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0672D5B495600A405FC /* SelectDateTimeMenuView.swift */; };
+		F552C0902D5B495600A405FC /* SelectDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0682D5B495600A405FC /* SelectDateView.swift */; };
+		F552C0912D5B495600A405FC /* SelectTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0692D5B495600A405FC /* SelectTimeView.swift */; };
+		F552C0922D5B495600A405FC /* AddNewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C06B2D5B495600A405FC /* AddNewTaskView.swift */; };
+		F552C0932D5B495600A405FC /* AddNewTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C06D2D5B495600A405FC /* AddNewTaskViewModel.swift */; };
+		F552C0942D5B495600A405FC /* TodoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0702D5B495600A405FC /* TodoItemView.swift */; };
+		F552C0952D5B495600A405FC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0722D5B495600A405FC /* HomeView.swift */; };
+		F552C0962D5B495600A405FC /* AllTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0742D5B495600A405FC /* AllTaskViewModel.swift */; };
+		F552C0972D5B495600A405FC /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0772D5B495600A405FC /* HelpView.swift */; };
+		F552C0982D5B495600A405FC /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0792D5B495600A405FC /* SignInView.swift */; };
+		F552C0992D5B495600A405FC /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C07A2D5B495600A405FC /* SignUpView.swift */; };
+		F552C09A2D5B495600A405FC /* GetStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C07D2D5B495600A405FC /* GetStartedView.swift */; };
+		F552C09B2D5B495600A405FC /* OnboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C07E2D5B495600A405FC /* OnboardView.swift */; };
+		F552C09C2D5B495600A405FC /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0812D5B495600A405FC /* RootView.swift */; };
+		F552C09D2D5B495600A405FC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0822D5B495600A405FC /* Router.swift */; };
+		F552C09E2D5B495600A405FC /* SettignsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0842D5B495600A405FC /* SettignsView.swift */; };
+		F552C09F2D5B495600A405FC /* SideBarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0862D5B495600A405FC /* SideBarHeaderView.swift */; };
+		F552C0A02D5B495600A405FC /* SideBarMenuRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0872D5B495600A405FC /* SideBarMenuRowView.swift */; };
+		F552C0A12D5B495600A405FC /* SideBarMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0882D5B495600A405FC /* SideBarMenuView.swift */; };
+		F552C0A22D5B495600A405FC /* TellAFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C08A2D5B495600A405FC /* TellAFriendView.swift */; };
 		F57AD19C2D55E13400D8916D /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57AD19B2D55E13400D8916D /* ToDoItem.swift */; };
 		F5887C322D53713F00746AD0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5887C2C2D53713F00746AD0 /* Preview Assets.xcassets */; };
 		F5887C332D53713F00746AD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5887C2E2D53713F00746AD0 /* Assets.xcassets */; };
 		F5887C342D53713F00746AD0 /* ToDoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5887C252D53713F00746AD0 /* ToDoListApp.swift */; };
 		F5887C3D2D53754A00746AD0 /* OnboardingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5887C3C2D53754A00746AD0 /* OnboardingStep.swift */; };
-		F5887C502D53970700746AD0 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5887C4F2D53970700746AD0 /* RootView.swift */; };
-		F5887C522D53980400746AD0 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5887C512D53980400746AD0 /* Router.swift */; };
 		F5C2A4912D551A00004547AD /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C2A4902D551A00004547AD /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F552BFFB2D5B394900A405FC /* SidebarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarItem.swift; sourceTree = "<group>"; };
+		F552C0652D5B495600A405FC /* CategoryIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIconView.swift; sourceTree = "<group>"; };
+		F552C0662D5B495600A405FC /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		F552C0672D5B495600A405FC /* SelectDateTimeMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateTimeMenuView.swift; sourceTree = "<group>"; };
+		F552C0682D5B495600A405FC /* SelectDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateView.swift; sourceTree = "<group>"; };
+		F552C0692D5B495600A405FC /* SelectTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTimeView.swift; sourceTree = "<group>"; };
+		F552C06B2D5B495600A405FC /* AddNewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskView.swift; sourceTree = "<group>"; };
+		F552C06D2D5B495600A405FC /* AddNewTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskViewModel.swift; sourceTree = "<group>"; };
+		F552C0702D5B495600A405FC /* TodoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemView.swift; sourceTree = "<group>"; };
+		F552C0722D5B495600A405FC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F552C0742D5B495600A405FC /* AllTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTaskViewModel.swift; sourceTree = "<group>"; };
+		F552C0772D5B495600A405FC /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		F552C0792D5B495600A405FC /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		F552C07A2D5B495600A405FC /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		F552C07D2D5B495600A405FC /* GetStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedView.swift; sourceTree = "<group>"; };
+		F552C07E2D5B495600A405FC /* OnboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardView.swift; sourceTree = "<group>"; };
+		F552C0812D5B495600A405FC /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		F552C0822D5B495600A405FC /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		F552C0842D5B495600A405FC /* SettignsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettignsView.swift; sourceTree = "<group>"; };
+		F552C0862D5B495600A405FC /* SideBarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarHeaderView.swift; sourceTree = "<group>"; };
+		F552C0872D5B495600A405FC /* SideBarMenuRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarMenuRowView.swift; sourceTree = "<group>"; };
+		F552C0882D5B495600A405FC /* SideBarMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarMenuView.swift; sourceTree = "<group>"; };
+		F552C08A2D5B495600A405FC /* TellAFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TellAFriendView.swift; sourceTree = "<group>"; };
 		F57AD19B2D55E13400D8916D /* ToDoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
 		F5887C0D2D5364AC00746AD0 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5887C252D53713F00746AD0 /* ToDoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListApp.swift; sourceTree = "<group>"; };
 		F5887C2C2D53713F00746AD0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F5887C2E2D53713F00746AD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5887C3C2D53754A00746AD0 /* OnboardingStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStep.swift; sourceTree = "<group>"; };
-		F5887C4F2D53970700746AD0 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		F5887C512D53980400746AD0 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		F5C2A4902D551A00004547AD /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		F552C0A32D5B511B00A405FC /* TabView */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TabView;
+			sourceTree = "<group>";
+		};
 		F57AD1A12D55E75500D8916D /* Extensions */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Extensions;
@@ -40,24 +87,9 @@
 			path = Modifilers;
 			sourceTree = "<group>";
 		};
-		F5887C362D53717100746AD0 /* View */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = View;
-			sourceTree = "<group>";
-		};
-		F5887C452D53881B00746AD0 /* View */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = View;
-			sourceTree = "<group>";
-		};
 		F5887C4C2D53958000746AD0 /* Buttons */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Buttons;
-			sourceTree = "<group>";
-		};
-		F5A4F6F82D551F8400B9D8B3 /* AllTaskView */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = AllTaskView;
 			sourceTree = "<group>";
 		};
 		F5C2A45D2D54C57E004547AD /* TextFields */ = {
@@ -68,11 +100,6 @@
 		F5C2A45E2D54C586004547AD /* Other */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Other;
-			sourceTree = "<group>";
-		};
-		F5C2A4692D54C64C004547AD /* AddNewTask */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = AddNewTask;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -88,6 +115,172 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F552C06A2D5B495600A405FC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F552C0652D5B495600A405FC /* CategoryIconView.swift */,
+				F552C0662D5B495600A405FC /* HeaderView.swift */,
+				F552C0672D5B495600A405FC /* SelectDateTimeMenuView.swift */,
+				F552C0682D5B495600A405FC /* SelectDateView.swift */,
+				F552C0692D5B495600A405FC /* SelectTimeView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F552C06C2D5B495600A405FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F552C06B2D5B495600A405FC /* AddNewTaskView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F552C06E2D5B495600A405FC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F552C06D2D5B495600A405FC /* AddNewTaskViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F552C06F2D5B495600A405FC /* AddNewTask */ = {
+			isa = PBXGroup;
+			children = (
+				F552C06A2D5B495600A405FC /* Components */,
+				F552C06C2D5B495600A405FC /* View */,
+				F552C06E2D5B495600A405FC /* ViewModel */,
+			);
+			path = AddNewTask;
+			sourceTree = "<group>";
+		};
+		F552C0712D5B495600A405FC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F552C0702D5B495600A405FC /* TodoItemView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F552C0732D5B495600A405FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F552C0722D5B495600A405FC /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F552C0752D5B495600A405FC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F552C0742D5B495600A405FC /* AllTaskViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F552C0762D5B495600A405FC /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F552C0712D5B495600A405FC /* Components */,
+				F552C0732D5B495600A405FC /* View */,
+				F552C0752D5B495600A405FC /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F552C0782D5B495600A405FC /* HelpAndFeedBack */ = {
+			isa = PBXGroup;
+			children = (
+				F552C0772D5B495600A405FC /* HelpView.swift */,
+			);
+			path = HelpAndFeedBack;
+			sourceTree = "<group>";
+		};
+		F552C07B2D5B495600A405FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F552C0792D5B495600A405FC /* SignInView.swift */,
+				F552C07A2D5B495600A405FC /* SignUpView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F552C07C2D5B495600A405FC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F552C07B2D5B495600A405FC /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		F552C07F2D5B495600A405FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F552C07D2D5B495600A405FC /* GetStartedView.swift */,
+				F552C07E2D5B495600A405FC /* OnboardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F552C0802D5B495600A405FC /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				F552C07F2D5B495600A405FC /* View */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		F552C0832D5B495600A405FC /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				F552C0812D5B495600A405FC /* RootView.swift */,
+				F552C0822D5B495600A405FC /* Router.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		F552C0852D5B495600A405FC /* Settigns */ = {
+			isa = PBXGroup;
+			children = (
+				F552C0842D5B495600A405FC /* SettignsView.swift */,
+			);
+			path = Settigns;
+			sourceTree = "<group>";
+		};
+		F552C0892D5B495600A405FC /* SideBar */ = {
+			isa = PBXGroup;
+			children = (
+				F552C0862D5B495600A405FC /* SideBarHeaderView.swift */,
+				F552C0872D5B495600A405FC /* SideBarMenuRowView.swift */,
+				F552C0882D5B495600A405FC /* SideBarMenuView.swift */,
+			);
+			path = SideBar;
+			sourceTree = "<group>";
+		};
+		F552C08B2D5B495600A405FC /* TellAFriend */ = {
+			isa = PBXGroup;
+			children = (
+				F552C08A2D5B495600A405FC /* TellAFriendView.swift */,
+			);
+			path = TellAFriend;
+			sourceTree = "<group>";
+		};
+		F552C08C2D5B495600A405FC /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F552C0A32D5B511B00A405FC /* TabView */,
+				F552C0832D5B495600A405FC /* Root */,
+				F552C0802D5B495600A405FC /* Onboarding */,
+				F552C07C2D5B495600A405FC /* Login */,
+				F552C0762D5B495600A405FC /* Home */,
+				F552C06F2D5B495600A405FC /* AddNewTask */,
+				F552C0782D5B495600A405FC /* HelpAndFeedBack */,
+				F552C0852D5B495600A405FC /* Settigns */,
+				F552C0892D5B495600A405FC /* SideBar */,
+				F552C08B2D5B495600A405FC /* TellAFriend */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		F5887C042D5364AC00746AD0 = {
 			isa = PBXGroup;
 			children = (
@@ -122,43 +315,6 @@
 			path = SharedComponents;
 			sourceTree = "<group>";
 		};
-		F5887C282D53713F00746AD0 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				F5887C452D53881B00746AD0 /* View */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		F5887C292D53713F00746AD0 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				F5887C362D53717100746AD0 /* View */,
-			);
-			path = Onboarding;
-			sourceTree = "<group>";
-		};
-		F5887C2A2D53713F00746AD0 /* Root */ = {
-			isa = PBXGroup;
-			children = (
-				F5887C4F2D53970700746AD0 /* RootView.swift */,
-				F5887C512D53980400746AD0 /* Router.swift */,
-			);
-			path = Root;
-			sourceTree = "<group>";
-		};
-		F5887C2B2D53713F00746AD0 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				F5A4F6F82D551F8400B9D8B3 /* AllTaskView */,
-				F5C2A4692D54C64C004547AD /* AddNewTask */,
-				F5887C2A2D53713F00746AD0 /* Root */,
-				F5887C292D53713F00746AD0 /* Onboarding */,
-				F5887C282D53713F00746AD0 /* Login */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
 		F5887C2D2D53713F00746AD0 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,7 +338,7 @@
 				F57AD1A12D55E75500D8916D /* Extensions */,
 				F5887C262D53713F00746AD0 /* App */,
 				F5887C272D53713F00746AD0 /* SharedComponents */,
-				F5887C2B2D53713F00746AD0 /* Core */,
+				F552C08C2D5B495600A405FC /* Core */,
 				F5887C3B2D53733800746AD0 /* Model */,
 				F5887C2D2D53713F00746AD0 /* Preview Content */,
 				F5887C2F2D53713F00746AD0 /* Resources */,
@@ -196,6 +352,7 @@
 				F5887C3C2D53754A00746AD0 /* OnboardingStep.swift */,
 				F5C2A4902D551A00004547AD /* Category.swift */,
 				F57AD19B2D55E13400D8916D /* ToDoItem.swift */,
+				F552BFFB2D5B394900A405FC /* SidebarItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,15 +373,12 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				F552C0A32D5B511B00A405FC /* TabView */,
 				F57AD1A12D55E75500D8916D /* Extensions */,
 				F57AD1A82D5606F000D8916D /* Modifilers */,
-				F5887C362D53717100746AD0 /* View */,
-				F5887C452D53881B00746AD0 /* View */,
 				F5887C4C2D53958000746AD0 /* Buttons */,
-				F5A4F6F82D551F8400B9D8B3 /* AllTaskView */,
 				F5C2A45D2D54C57E004547AD /* TextFields */,
 				F5C2A45E2D54C586004547AD /* Other */,
-				F5C2A4692D54C64C004547AD /* AddNewTask */,
 			);
 			name = ToDoList;
 			packageProductDependencies = (
@@ -284,12 +438,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F552C08D2D5B495600A405FC /* CategoryIconView.swift in Sources */,
+				F552C08E2D5B495600A405FC /* HeaderView.swift in Sources */,
+				F552C08F2D5B495600A405FC /* SelectDateTimeMenuView.swift in Sources */,
+				F552C0902D5B495600A405FC /* SelectDateView.swift in Sources */,
+				F552C0912D5B495600A405FC /* SelectTimeView.swift in Sources */,
+				F552C0922D5B495600A405FC /* AddNewTaskView.swift in Sources */,
+				F552C0932D5B495600A405FC /* AddNewTaskViewModel.swift in Sources */,
+				F552C0942D5B495600A405FC /* TodoItemView.swift in Sources */,
+				F552C0952D5B495600A405FC /* HomeView.swift in Sources */,
+				F552C0962D5B495600A405FC /* AllTaskViewModel.swift in Sources */,
+				F552C0972D5B495600A405FC /* HelpView.swift in Sources */,
+				F552C0982D5B495600A405FC /* SignInView.swift in Sources */,
+				F552C0992D5B495600A405FC /* SignUpView.swift in Sources */,
+				F552C09A2D5B495600A405FC /* GetStartedView.swift in Sources */,
+				F552C09B2D5B495600A405FC /* OnboardView.swift in Sources */,
+				F552C09C2D5B495600A405FC /* RootView.swift in Sources */,
+				F552C09D2D5B495600A405FC /* Router.swift in Sources */,
+				F552C09E2D5B495600A405FC /* SettignsView.swift in Sources */,
+				F552C09F2D5B495600A405FC /* SideBarHeaderView.swift in Sources */,
+				F552C0A02D5B495600A405FC /* SideBarMenuRowView.swift in Sources */,
+				F552C0A12D5B495600A405FC /* SideBarMenuView.swift in Sources */,
+				F552C0A22D5B495600A405FC /* TellAFriendView.swift in Sources */,
 				F5887C3D2D53754A00746AD0 /* OnboardingStep.swift in Sources */,
+				F552BFFC2D5B394900A405FC /* SidebarItem.swift in Sources */,
 				F5887C342D53713F00746AD0 /* ToDoListApp.swift in Sources */,
 				F5C2A4912D551A00004547AD /* Category.swift in Sources */,
-				F5887C522D53980400746AD0 /* Router.swift in Sources */,
 				F57AD19C2D55E13400D8916D /* ToDoItem.swift in Sources */,
-				F5887C502D53970700746AD0 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

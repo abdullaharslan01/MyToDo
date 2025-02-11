@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct HeaderView: View {
-    
+
     let title: String
-    let systemImageName: String
-    var onTapButton: () -> ()
-    
+    var onTapCloseButton: () -> ()
+
     var body: some View {
         ZStack {
             Image("newTaskHeader")
@@ -22,18 +21,10 @@ struct HeaderView: View {
                 .frame(height: 120)
 
             HStack(spacing: 0) {
-                
-                Button {
-                    onTapButton()
-                } label: {
-                    Circle()
-                        .fill(.white)
-                        .frame(width: 48, height: 48)
-                        .overlay {
-                            Image(systemName: systemImageName)
-                                .foregroundStyle(.black)
-                                .font(.title3)
-                        }
+
+                CloseButton(fill: false) {
+                    onTapCloseButton()
+
                 }.padding(.leading, 20)
                 Spacer()
                 Text(title)

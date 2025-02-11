@@ -16,7 +16,7 @@ struct SelectTimeView: View {
     
     var body: some View {
         VStack {
-            HeaderView(title: "Select a time", systemImageName: "xmark") {
+            HeaderView(title: "Select a time") {
                 dismiss()
             }
             

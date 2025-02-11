@@ -7,12 +7,31 @@
 
 import SwiftUI
 
-struct Router: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+@Observable
+class Router {
+    
+    var navPath = NavigationPath()
+    
+    public enum Destination: Codable, Hashable {
+        case onboarding
+        case signIn
+        case signUp
+        case addToDo
+        case helpAndFeedBack
+        case settings
+        case tellAFriend
     }
-}
-
-#Preview {
-    Router()
+    
+    func navigate(to destination: Destination) {
+        navPath.append(destination)
+    }
+    
+    func navigateBack() {
+        navPath.removeLast()
+    }
+    
+    func navigateHome() {
+        navPath.removeLast(navPath.count)
+    }
+    
 }

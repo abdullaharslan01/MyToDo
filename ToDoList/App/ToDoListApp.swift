@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct ToDoListApp: App {
+    
+    @State private var router = Router()
+    
     var body: some Scene {
         WindowGroup {
-            AddNewTaskView()
+            RootView()
+                .environment(router)
         }
     }
 }

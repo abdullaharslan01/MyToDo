@@ -11,6 +11,8 @@ struct SignUpView: View {
     @State var mailField = ""
     @State var passwordField = ""
     @State var passwordFieldAgain = ""
+    
+    @Environment(Router.self) var router
         
     var body: some View {
             
@@ -21,7 +23,16 @@ struct SignUpView: View {
                 .font(.largeTitle)
                 .bold()
                 .padding(.vertical, 30)
-                
+                .frame(maxWidth: .infinity, alignment: .center)
+                .overlay(alignment: .leading) {
+                    
+                    CloseButton {
+                        router.navigateBack()
+                    }
+                    
+                   
+                }
+            
             VStack(spacing: 20) {
                 UserInputTextField(hint: "email", text: self.$mailField) {}
                                 
@@ -50,4 +61,5 @@ struct SignUpView: View {
 
 #Preview {
     SignUpView()
+        .environment(Router())
 }

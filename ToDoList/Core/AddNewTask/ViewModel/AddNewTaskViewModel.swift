@@ -18,6 +18,8 @@ class AddNewTaskViewModel {
     var isShowingDatePicker: Bool = false
     var isShowingTimePicker: Bool = false
 
+    
+    
     func isSelectedCategory(_ category: Category) -> Bool {
         return selectedCategory == category
     }

@@ -7,11 +7,13 @@
 
 import SwiftUI
 
-struct AllTaskView: View {
+struct HomeView: View {
 
     @State var vm = AllTaskViewModel()
     
-  
+    @Environment(Router.self) private var router
+    
+    @Binding var presentSideMenu: Bool
 
     var headerView: some View {
         Image("allTaskHeader")
@@ -26,22 +28,27 @@ struct AllTaskView: View {
         VStack {
 
             HStack {
-                Button {} label: {
+                Button {
+                    withAnimation {
+                        presentSideMenu.toggle()
+                    }
+                } label: {
                     Image(systemName: "line.3.horizontal")
                         .font(.title)
 
-                }.frame(maxWidth: .infinity, alignment: .leading)
+                }
 
                 Text(vm.currentDate.formattedWithDate())
                     .font(.title3)
                     .fontWeight(.semibold)
+                    .lineLimit(1)
                     .frame(maxWidth: .infinity, alignment: .center)
 
                 Image("user")
                     .resizable()
                     .frame(width: 40, height: 40)
                     .clipShape(.circle)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
+                   
 
             }.foregroundStyle(.page)
                 .padding(.horizontal)
@@ -69,10 +76,8 @@ struct AllTaskView: View {
 
                     Section {
                         ForEach(vm.unComplated) { toDoItem in
-                            TodoItemView(toDoItem: toDoItem) {
-                                print("Clicked \(toDoItem.title)")
-                            }
-                            .makeListRowItem()
+                            TodoItemView(toDoItem: toDoItem) {}
+                                .makeListRowItem()
 
                         }
                     }.clipShape(.rect(cornerRadius: 20))
@@ -94,17 +99,16 @@ struct AllTaskView: View {
                     .scrollContentBackground(.hidden)
                     .offset(y: -70)
                     .refreshable {}
+                    .ignoresSafeArea(edges:.bottom)
 
             }.safeAreaInset(edge: .bottom, content: {
 
                 MainButtonView("Add New Task") {
-                    vm.addNewTaskScreenState.toggle()
+                    router.navigate(to: .addToDo)
                 }.padding(.horizontal)
 
             })
-            .navigationDestination(isPresented: $vm.addNewTaskScreenState) {
-                AddNewTaskView().navigationBarBackButtonHidden()
-            }
+           
 
             .background(.page)
             .ignoresSafeArea(edges: .top)
@@ -113,10 +117,10 @@ struct AllTaskView: View {
     }
 }
 
-
-
 #Preview {
     NavigationStack {
-        AllTaskView()
+        HomeView(presentSideMenu: .constant(false))
+            .environment(Router())
+            
     }
 }

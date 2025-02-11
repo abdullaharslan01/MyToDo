@@ -14,17 +14,15 @@ enum FieldState: Hashable {
 
 struct AddNewTaskView: View {
     
-    @Environment(\.dismiss) var dismiss
     @State var vm = AddNewTaskViewModel()
-    @State private var keyboardSpace: CGFloat = 0
     
     @State private var scrollPosition = ScrollPosition()
         
     @FocusState var focused: FieldState?
-    
+    @Environment(Router.self) private var router
     var headerView: some View {
-        HeaderView(title: "Add New Task", systemImageName: "xmark") {
-            dismiss()
+        HeaderView(title: "Add New Task") {
+            router.navigateBack()
         }
 
     }
@@ -90,6 +88,7 @@ struct AddNewTaskView: View {
                 .textEditorStyle(.plain)
                 .frame(height: 250)
                 .background(Color.white)
+                .submitLabel(.done)
                 .clipShape(.rect(cornerRadius: 6))
                 .toolbar {
                     ToolbarItemGroup(placement: .keyboard) {
@@ -130,6 +129,8 @@ struct AddNewTaskView: View {
                         withAnimation {
                             scrollPosition.scrollTo(y: 250)
                         }
+                    } else {
+                        scrollPosition.scrollTo(y: 0)
                     }
                 }
             
@@ -164,4 +165,5 @@ struct AddNewTaskView: View {
 
 #Preview {
     AddNewTaskView()
+        .environment(Router())
 }
