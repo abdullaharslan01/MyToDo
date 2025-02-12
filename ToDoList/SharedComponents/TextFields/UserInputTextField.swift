@@ -19,10 +19,12 @@ struct UserInputTextField: View {
     @ViewBuilder
     func userInputField() -> some View {
         if isPasswordField {
-            SecureField(hint, text: $text)
+            SecureField("", text: $text)
         } else {
-            TextField(hint, text: $text)
+            TextField("", text: $text)
                 .keyboardType(.emailAddress)
+                .textCase(.lowercase)
+                .autocorrectionDisabled()
             
         }
     }
@@ -38,7 +40,19 @@ struct UserInputTextField: View {
             userInputField()
                 .foregroundStyle(.tdPrimaryText)
                 .focused($isActive)
-            
+                .overlay(alignment: .leading) {
+                    
+                    ZStack {
+                        if text.isEmpty {
+                            Text(hint)
+                                .foregroundStyle(.tdPrimary)
+                                .opacity(0.5)
+                                
+                        }
+                    }
+                    
+                }
+                
         }
         .padding(.horizontal)
         .frame(maxWidth: .infinity)
@@ -50,13 +64,13 @@ struct UserInputTextField: View {
         .shadow(radius: 10, x: 0, y: 1)
         
         .onChange(of: text) { _, _ in
+    
             onChange()
+            
         }
     }
 }
 
 #Preview {
-    UserInputTextField(hint: "", text: .constant("")) {
-        
-    }
+    UserInputTextField(hint: "email", text: .constant("")) {}
 }

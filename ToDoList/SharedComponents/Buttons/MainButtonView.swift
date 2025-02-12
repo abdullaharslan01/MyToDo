@@ -11,6 +11,7 @@ struct MainButtonView: View {
     var buttonTitle: String
     var onTapGesture: ()->()?
     
+    
     init(_ buttonTitle: String, onTapGesture: @escaping () -> ()?) {
         self.buttonTitle = buttonTitle
         self.onTapGesture = onTapGesture

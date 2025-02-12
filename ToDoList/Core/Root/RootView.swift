@@ -11,10 +11,8 @@ struct RootView: View {
 
     @Environment(Router.self) var router
     
-    @AppStorage("isUserLogIn") var isUserLogIn: Bool = false
     
-    @State var selectedMenuOption: SideMenuOptionModel = .all
-    @State var showMenu: Bool = false
+    @State var vm  = RootViewModel()
 
     var body: some View {
 
@@ -23,14 +21,14 @@ struct RootView: View {
         NavigationStack(path: $router.navPath) {
             ZStack {
 
-                if isUserLogIn {
+                if vm.userLoginState {
                     
                     ZStack {
 
-                        HomeView(presentSideMenu: $showMenu)
+                        HomeView(presentSideMenu: $vm.showMenu)
                         
-                        SideBarMenuView(isShowing: $showMenu, selectedOption: $selectedMenuOption)
-                    }.onChange(of: selectedMenuOption) { oldValue, newValue in
+                        SideBarMenuView(isShowing: $vm.showMenu, selectedOption: $vm.selectedMenuOption)
+                    }.onChange(of: vm.selectedMenuOption) { oldValue, newValue in
                         switch newValue {
                         case .all : router.navigateHome()
                         case .add : router.navigate(to: .addToDo)
@@ -38,6 +36,8 @@ struct RootView: View {
                         case .settigns: router .navigate(to: .settings)
                         case .tell: router.navigate(to: .tellAFriend)
                         }
+                    }.onChange(of: vm.userLoginState) { oldValue, newValue in
+                        print("Login state was changed: \(newValue)")
                     }
                     
                 } else {
@@ -45,7 +45,9 @@ struct RootView: View {
                 }
 
             }
-            .onAppear(perform: {})
+            .onAppear(perform: {
+                vm.checkUserLoginState()
+            })
             .navigationDestination(for: Router.Destination.self) { destination in
                 switch destination {
                 case .onboarding:

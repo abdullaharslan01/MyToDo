@@ -7,68 +7,101 @@
 
 import SwiftUI
 
+enum SignInFocused {
+    case email
+    case password
+}
+
 struct SignInView: View {
-    @State var mailField = ""
-    @State var passwordField = ""
-    
-    @AppStorage("isUserLogIn")  var isUserLogIn: Bool?
+  
+    @State private var vm = SignInViewModel()
     
     @Environment(Router.self) private var router
+    @FocusState var focused: SignInFocused?
     
     var body: some View {
         
-        VStack(spacing: 30) {
-          
-            Text("Sign In")
-                .foregroundStyle(.tdPrimary)
-                .font(.largeTitle)
-                .bold()
-                .padding(.vertical, 30)
+        ZStack {
+            if vm.isLoading {
+                ProgressView().tint(.tdPrimaryText)
+                    .controlSize(.large)
+                    .offset(y: -50)
+                        
+            }
             
-            VStack(spacing: 20) {
-                UserInputTextField(hint: "email", text: self.$mailField) {}
+            VStack(spacing: 30) {
+                      
+                Text("Sign In")
+                    .foregroundStyle(.tdPrimary)
+                    .font(.largeTitle)
+                    .bold()
+                    .padding(.vertical, 30)
+                        
+                VStack(spacing: 20) {
+                    
+                    UserInputTextField(hint: "email", text: self.$vm.email) {}
+                        .submitLabel(.next).onSubmit {
+                            focused = .password
+                        }.focused($focused, equals: .email)
+                    
+                    UserInputTextField(hint: "password", text: self.$vm.password, isPasswordField: true) {}.submitLabel(.done).focused($focused, equals: .password)
                             
-                UserInputTextField(hint: "password", text: self.$passwordField, isPasswordField: true) {}
-                
-                Button {} label: {
-                    Text("Forgot password?")
-                        .foregroundStyle(.tdPrimaryText)
-                        .frame(maxWidth: .infinity, alignment: .trailing)
+                    Button {} label: {
+                        Text("Forgot password?")
+                            .foregroundStyle(.tdPrimaryText)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                    }
+                            
+                }.toolbar {
+                    ToolbarItem(placement: .keyboard) {
+                        HStack {
+                            Button("Done") {
+                                focused = nil
+                            }.frame(maxWidth: .infinity, alignment: .trailing)
+                        }
+                    }
                 }
-                
-            }
-            
-            MainButtonView("Sign In") {
-                isUserLogIn = true
-                router.navigateHome()
-            }
-            
-            Text("Or sign in with")
-                .font(.callout)
-                .foregroundStyle(.tdGray)
-            
-            HStack(spacing: 20) {
-                LoginWithButton(buttonType: .facebook) {}
-                LoginWithButton(buttonType: .google) {}
-                LoginWithButton(buttonType: .linkedIn) {}
-            }
-            
-            Spacer()
-            HStack {
-                Text("Already have an account?")
+                        
+                MainButtonView("Sign In") {
+                    vm.signInWithEmailAndPassword()
+                }.disabled(vm.isLoading)
+                    .sensoryFeedback(.success, trigger: vm.isLoading)
+                        
+                Text("Or sign in with")
+                    .font(.callout)
                     .foregroundStyle(.tdGray)
-
-                Button {
-                    router.navigate(to: .signUp)
-                } label: {
-                    Text("Sign Up")
-                        .foregroundStyle(.tdSecondary)
-                        .bold()
+                        
+                HStack(spacing: 20) {
+                    LoginWithButton(buttonType: .facebook) {}
+                    LoginWithButton(buttonType: .google) {}
+                    LoginWithButton(buttonType: .linkedIn) {}
                 }
+                        
+                Spacer()
+                HStack {
+                    Text("Already have an account?")
+                        .foregroundStyle(.tdGray)
 
-            }
-            
-        }.padding(.horizontal)
+                    Button {
+                        router.navigate(to: .signUp)
+                    } label: {
+                        Text("Sign Up")
+                            .foregroundStyle(.tdSecondary)
+                            .bold()
+                    }
+
+                }
+                        
+            }.padding(.horizontal)
+                .alert(isPresented: $vm.alertPresentedState) {
+                    vm.currentAlert.alert
+                }.background(.page)
+                .opacity(vm.isLoading ? 0.7 : 1).onChange(of: vm.isLoadingState) { _, _ in
+                    if vm.isLoadingState {
+                        router.navigateHome()
+                    }
+                }
+        }
         
     }
 }

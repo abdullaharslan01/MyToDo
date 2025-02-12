@@ -51,7 +51,7 @@ struct OnboardView: View {
                                 .font(.title3)
                         }
                                         
-                    }
+                    }.sensoryFeedback(.selection, trigger: currentPage)
                     Button {
                         withAnimation(.easeInOut) {
                             currentPage = onboardingData.count - 1

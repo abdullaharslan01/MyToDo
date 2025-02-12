@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct SettignsView: View {
+    
+    @Environment(Router.self) var router
+    
     var body: some View {
-        Text("Settigns, View")
+        VStack {
+            Button("Exit") {
+                try? AuthService.shared.signOut()
+                router.navigateHome()
+                
+            }
+        }
     }
 }
 
 #Preview {
     SettignsView()
+        .environment(Router())
 }
