@@ -11,7 +11,7 @@ import SwiftUI
 @Observable
 class SignUpViewModel {
     
-    var mailField = ""
+    var mailField = "" 
     var passwordField0 = ""
     var passwordField1 = ""
 
@@ -57,7 +57,7 @@ class SignUpViewModel {
             isLoading.toggle()
             Task {
                 do {
-                    let _ = try await AuthService.shared.createUser(withEmail: mailField, password: passwordField0)
+                    let _ = try await AuthService.shared.createUser(withEmail: mailField.lowercased(), password: passwordField0)
                     isLoginState = true
                     
                  

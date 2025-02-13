@@ -11,6 +11,8 @@ import Observation
 
 @Observable
 class AllTaskViewModel {
+    
+    var currentDate: Date  = .now
 
     var listener: ListenerRegistration?
 

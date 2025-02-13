@@ -15,8 +15,6 @@ enum FieldState: Hashable {
 
 struct AddNewTaskView: View {
  
-    
-    
     @State var vm = AddNewTaskViewModel()
     
     @State private var scrollPosition = ScrollPosition()
@@ -39,8 +37,8 @@ struct AddNewTaskView: View {
             headerTextView("Task Title")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundStyle(.tdBody)
-                            
-            TextField("Task Title", text: $vm.taskTitle)
+                
+            TextField("", text: $vm.taskTitle)
                 .focused($focused, equals: .title)
                 .padding()
                 .frame(height: 55)
@@ -165,7 +163,7 @@ struct AddNewTaskView: View {
                         }))
                     }
                 }
-                .opacity(vm.isAddLoadingState ? 0.6 : 1)
+                .opacity(vm.isAddLoadingState ? 0.9 : 1)
                 .ignoresSafeArea()
                 .padding(.horizontal)
                 .overlay(content: {
@@ -195,6 +193,7 @@ struct AddNewTaskView: View {
                         LottieView(animation: .named("success"))
                             .playing(loopMode: .playOnce)
                             .animationDidFinish { _ in
+                                
                                 vm.alertPresentedState.toggle()
                                                         
                             }.id(vm.lottie)

@@ -49,7 +49,7 @@ class SignInViewModel {
                 
                 do {
                     
-                    let _ = try await AuthService.shared.signIn(withEmail: email, password: password)
+                    let _ = try await AuthService.shared.signIn(withEmail: email.lowercased(), password: password)
                     isLoadingState = true
                 } catch {
                     currentAlert = .error(title: "Error", message: error.localizedDescription)

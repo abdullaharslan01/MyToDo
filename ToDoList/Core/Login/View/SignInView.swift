@@ -43,6 +43,7 @@ struct SignInView: View {
                         .submitLabel(.next).onSubmit {
                             focused = .password
                         }.focused($focused, equals: .email)
+                        .textCase(.lowercase)
                     
                     UserInputTextField(hint: "password", text: self.$vm.password, isPasswordField: true) {}.submitLabel(.done).focused($focused, equals: .password)
                             
@@ -96,10 +97,12 @@ struct SignInView: View {
                 .alert(isPresented: $vm.alertPresentedState) {
                     vm.currentAlert.alert
                 }.background(.page)
-                .opacity(vm.isLoading ? 0.7 : 1).onChange(of: vm.isLoadingState) { _, _ in
+                .opacity(vm.isLoading ? 0.8 : 1).onChange(of: vm.isLoadingState) { _, _ in
                     if vm.isLoadingState {
                         router.navigateHome()
                     }
+                }.onTapGesture {
+                    UIApplication.shared.endEditing()
                 }
         }
         

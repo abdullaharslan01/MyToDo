@@ -46,8 +46,8 @@ struct TodoItemView: View {
                     if let note = toDoItem.notes {
                         Text(note)
                             .font(.caption)
-                            .lineLimit(4)
                             .multilineTextAlignment(.leading)
+                            .foregroundStyle(.tdBody)
                     }
                     
                             
@@ -59,6 +59,9 @@ struct TodoItemView: View {
                 .resizable()
                 .scaledToFill()
                 .frame(width: 24, height: 24)
+                .onAppear {
+                    print(toDoItem.notes ?? "")
+                }
                     
         }
         .frame(height: 80)
@@ -72,5 +75,5 @@ struct TodoItemView: View {
 #Preview {
     TodoItemView(toDoItem: .sampleData[0]) {
         
-    }
+    }.padding(.horizontal)
 }

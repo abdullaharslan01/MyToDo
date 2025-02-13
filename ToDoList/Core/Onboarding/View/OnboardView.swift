@@ -98,6 +98,7 @@ struct OnboardView: View {
             .animation(.easeInOut(duration: 0.3), value: currentPage)
             .sensoryFeedback(.selection, trigger: currentPage)
             .background(.white)
+            .toolbarVisibility(.hidden, for: .navigationBar)
             
     }
     

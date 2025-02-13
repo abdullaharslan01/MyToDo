@@ -13,6 +13,7 @@ struct HomeView: View {
     @State var vm = AllTaskViewModel()
 
     @Environment(Router.self) private var router
+    @Binding var sliderScreenVisibility: Bool
 
     var headerView: some View {
         Image("allTaskHeader")
@@ -25,6 +26,36 @@ struct HomeView: View {
     var headerSection: some View {
 
         VStack {
+
+            HStack {
+
+                Button {
+                    withAnimation {
+                        sliderScreenVisibility.toggle()
+                    }
+                } label: {
+                    Image(systemName: "line.3.horizontal")
+                        .font(.title)
+                        .foregroundStyle(.page)
+
+                }
+
+                Text(vm.currentDate.formattedWithDate())
+                    .font(.title3)
+                    .foregroundStyle(.page)
+                    .fontWeight(.semibold)
+                    .lineLimit(1)
+                    .frame(maxWidth: .infinity, alignment: .center)
+
+                Image("user")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .clipShape(.circle)
+                    .onTapGesture {
+                        router.navigate(to: .settings)
+                    }
+
+            }.padding(.horizontal)
 
             Text("My Todo List")
                 .foregroundStyle(.page)
@@ -166,7 +197,7 @@ struct HomeView: View {
 
 #Preview {
     NavigationStack {
-        HomeView()
+        HomeView(sliderScreenVisibility: .constant(true))
             .environment(Router())
 
     }

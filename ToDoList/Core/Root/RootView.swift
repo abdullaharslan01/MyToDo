@@ -24,25 +24,20 @@ struct RootView: View {
 
                     ZStack {
 
-                       
-                        HomeView()
+                        HomeView(sliderScreenVisibility: $vm.showMenu)
                             .onAppear {
                                 vm.selectedMenuOption = .all
                             }
                             .offset(x: vm.showMenu ? 290 : 0)
-                            
-                            
 
                         SideBarMenuView(isShowing: $vm.showMenu, selectedOption: $vm.selectedMenuOption)
                     }
-                    
-                
+
                     .onChange(of: vm.selectedMenuOption) { _, newValue in
                         switch newValue {
                         case .all:
                             vm.selectedMenuOption = .all
                         case .add: router.navigate(to: .addToDo)
-
                         case .settigns: router.navigate(to: .settings)
                             vm.selectedMenuOption = .settigns
                         case .tell: router.navigate(to: .tellAFriend)
@@ -54,42 +49,7 @@ struct RootView: View {
                     OnboardView()
                 }
 
-            }.toolbar(content: {
-
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        withAnimation {
-                            vm.showMenu.toggle()
-                        }
-                    } label: {
-                        Image(systemName: "line.3.horizontal")
-                            .font(.title3)
-                            .foregroundStyle(.page)
-
-                    }
-
-                }
-
-                ToolbarItem(placement: .principal) {
-                    Text(vm.currentDate.formattedWithDate())
-                        .font(.title3)
-                        .foregroundStyle(.page)
-                        .fontWeight(.semibold)
-                        .lineLimit(1)
-                }
-
-                ToolbarItem(placement: .topBarTrailing) {
-                    Image("user")
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                        .clipShape(.circle)
-                        .onTapGesture {
-                            router.navigate(to: .settings)
-                        }
-                }
-
-            })
-            .toolbarVisibility(vm.showMenu ? .hidden : .visible, for: .navigationBar)
+            }
 
             .onAppear(perform: {
                 vm.checkUserLoginState()
@@ -108,7 +68,6 @@ struct RootView: View {
                 case .addToDo:
                     AddNewTaskView()
                         .navigationBarBackButtonHidden()
-            
                 case .settings:
                     SettignsView()
                         .navigationBarBackButtonHidden()

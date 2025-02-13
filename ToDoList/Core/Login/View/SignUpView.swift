@@ -91,12 +91,14 @@ struct SignUpView: View {
                 vm.currentAlert.alert
             }
             .background(.page)
-            .opacity(vm.isLoading ? 0.7 : 1)
+            .opacity(vm.isLoading ? 0.8 : 1)
             .onChange(of: vm.isLoginState) { _, _ in
                 if vm.isLoginState {
                     router.navigateHome()
                    
                 }
+            }.onTapGesture {
+                UIApplication.shared.endEditing()
             }
         }
         

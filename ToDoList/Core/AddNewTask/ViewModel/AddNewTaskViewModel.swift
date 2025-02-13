@@ -47,12 +47,12 @@ class AddNewTaskViewModel {
             return
         }
 
-        isAddLoadingState = true
-        lottie = UUID()
         Task {
+            isAddLoadingState = true
             do {
                 try await FirestoreService.shared.createNewTask(task)
                 currentAlert = .success(title: "Success", message: "Your new task was added successfully.")
+                lottie = UUID()
 
             } catch {
                 currentAlert = .error(title: "Error", message: error.localizedDescription)
