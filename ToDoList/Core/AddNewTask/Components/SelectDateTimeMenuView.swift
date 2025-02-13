@@ -20,7 +20,7 @@ struct SelectDateTimeMenuView: View {
             Text("\(title)")
                 .font(.system(size: 16, weight: .semibold))
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundStyle(.black)
+                .foregroundStyle(.tdBody)
                 
             Button {
                 onTapGesture()

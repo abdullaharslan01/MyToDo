@@ -18,8 +18,12 @@ class AddNewTaskViewModel {
     var isShowingDatePicker: Bool = false
     var isShowingTimePicker: Bool = false
 
-    
-    
+    var isAddLoadingState: Bool = false
+
+    var alertPresentedState: Bool = false
+
+    var currentAlert: AlertType = .success(title: "", message: "")
+
     func isSelectedCategory(_ category: Category) -> Bool {
         return selectedCategory == category
     }
@@ -30,5 +34,41 @@ class AddNewTaskViewModel {
         return formatter.string(from: userSelectedDate)
     }
 
-   
+    func addNewTask() {
+
+        let task = TodoItem(title: taskTitle, date: userSelectedDate, notes: notes, categoryId: selectedCategory.id, isCompleted: false)
+
+        guard checkTask(task) else {
+            currentAlert = .error(title: "Error", message: "Title and Category cannot be empty.")
+            alertPresentedState.toggle()
+            return
+        }
+
+        isAddLoadingState = true
+        Task {
+            do {
+                try await FirestoreService.shared.createNewTask(task)
+                currentAlert = .success(title: "Success", message: "Your new task was added successfully.")
+
+            } catch {
+                currentAlert = .error(title: "Error", message: error.localizedDescription)
+            }
+            isAddLoadingState = false
+            alertPresentedState.toggle()
+
+        }
+    }
+
+    func checkTask(_ task: TodoItem) -> Bool {
+        if task.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            return false
+        }
+
+        if task.categoryId.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            return false
+        }
+
+        return true
+    }
+
 }

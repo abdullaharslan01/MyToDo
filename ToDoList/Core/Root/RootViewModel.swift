@@ -13,7 +13,7 @@ class RootViewModel {
     var selectedMenuOption: SideMenuOptionModel = .all
     var showMenu: Bool = false
     var userLoginState: Bool = false
-    
+    var currentDate: Date  = .now
     
     func checkUserLoginState() {
 

@@ -21,16 +21,21 @@ struct AddNewTaskView: View {
     @FocusState var focused: FieldState?
     @Environment(Router.self) private var router
     var headerView: some View {
-        HeaderView(title: "Add New Task") {
-            router.navigateBack()
+        
+        HStack {
+            
+            HeaderView(title: "Add New Task") {
+                router.navigateBack()
+            }
         }
-
+        
     }
     
     var taskTitleSection: some View {
         VStack {
             headerTextView("Task Title")
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundStyle(.tdBody)
                             
             TextField("Task Title", text: $vm.taskTitle)
                 .focused($focused, equals: .title)
@@ -79,6 +84,7 @@ struct AddNewTaskView: View {
         VStack {
             headerTextView("Notes")
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundStyle(.tdBody)
                             
             TextEditor(text: $vm.notes)
                 .focused($focused, equals: .note)
@@ -103,62 +109,92 @@ struct AddNewTaskView: View {
     }
     
     var body: some View {
-        VStack(spacing: 20) {
-            headerView
-       
-            ScrollView {
-                VStack(spacing: 20) {
-                    taskTitleSection
-                    cateegorySection
-                    selectDateTimeSection
-                  
-                    addNoteSection
-                           
-                    Rectangle()
-                        .fill(.clear)
-                        
-                        .frame(height: focused == nil ? 1 : 300)
-                        
-                }.ignoresSafeArea(.keyboard)
-                    .scrollTargetLayout()
-            }.scrollPosition($scrollPosition)
-                .animation(.default, value: scrollPosition)
-                .scrollIndicators(.hidden)
-                .onChange(of: focused) { _, newValue in
-                    if newValue == .note {
-                        withAnimation {
-                            scrollPosition.scrollTo(y: 250)
+        
+        ZStack {
+            VStack(spacing: 20) {
+                headerView
+                   
+                ScrollView {
+                    VStack(spacing: 20) {
+                        taskTitleSection
+                        cateegorySection
+                        selectDateTimeSection
+                              
+                        addNoteSection
+                                       
+                        Rectangle()
+                            .fill(.clear)
+                                    
+                            .frame(height: focused == nil ? 1 : 300)
+                                    
+                    }.ignoresSafeArea(.keyboard)
+                        .scrollTargetLayout()
+                }.scrollPosition($scrollPosition)
+                    .animation(.default, value: scrollPosition)
+                    .scrollIndicators(.hidden)
+                    .onChange(of: focused) { _, newValue in
+                        if newValue == .note {
+                            withAnimation {
+                                scrollPosition.scrollTo(y: 250)
+                            }
+                        } else {
+                            scrollPosition.scrollTo(y: 0)
                         }
-                    } else {
-                        scrollPosition.scrollTo(y: 0)
+                    }
+                        
+            }.background(.page)
+                        
+                .safeAreaInset(edge: .bottom, content: {
+                    MainButtonView("Save") {
+                        vm.addNewTask()
+                    }
+                    .disabled(vm.isAddLoadingState)
+                    .padding(.vertical, 50)
+                })
+                .alert(isPresented: $vm.alertPresentedState) {
+                    switch vm.currentAlert {
+                    case .error(_, _), .warning:
+                        return vm.currentAlert.alert
+                    case .success(let title, let message):
+                                
+                        return Alert(title: Text(title), message: Text(message), dismissButton: .cancel(Text("OK"), action: {
+                            self.router.navigateBack()
+                        }))
                     }
                 }
-            
-        }.background(.page)
-            
-            .safeAreaInset(edge: .bottom, content: {
-                MainButtonView("Save") {}
-                    .padding(.vertical, 50)
-            })
-            .ignoresSafeArea()
-            .padding(.horizontal)
-            .sheet(isPresented: $vm.isShowingDatePicker) {
-                SelectDateView(date: vm.userSelectedDate) { selectedDate in
-                    vm.userSelectedDate = selectedDate
-                    
+                .opacity(vm.isAddLoadingState ? 0.6 : 1)
+                .ignoresSafeArea()
+                .padding(.horizontal)
+                .overlay(content: {
+                  
+                    if vm.isAddLoadingState {
+                        
+                        ProgressView()
+                            .controlSize(.large)
+                            .tint(.tdPrimary)
+                            .opacity(1)
+                    }
+                })
+                .sheet(isPresented: $vm.isShowingDatePicker) {
+                    SelectDateView(date: vm.userSelectedDate) { selectedDate in
+                        vm.userSelectedDate = selectedDate
+                                
+                    }
+                    .presentationDetents([.fraction(0.75), .large])
                 }
-                .presentationDetents([.fraction(0.75), .large])
-            }
-            .sheet(isPresented: $vm.isShowingTimePicker) {
-                SelectTimeView(date: vm.userSelectedDate) { selectedDate in
-                    vm.userSelectedDate = selectedDate
-                }.presentationDetents([.fraction(0.50), .large])
-            }
+                .sheet(isPresented: $vm.isShowingTimePicker) {
+                    SelectTimeView(date: vm.userSelectedDate) { selectedDate in
+                        vm.userSelectedDate = selectedDate
+                    }.presentationDetents([.fraction(0.50), .large])
+                }
+        }
+        
     }
     
     func headerTextView(_ title: String) -> some View {
         Text(title)
             .font(.system(size: 16, weight: .semibold))
+            .foregroundStyle(.tdBody)
                 
     }
 }

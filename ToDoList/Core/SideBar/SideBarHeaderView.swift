@@ -13,26 +13,19 @@ struct SideBarHeaderView: View {
     
     var body: some View {
        
-       
-            
-            VStack(alignment: .leading) {
-                Image("user")
-                    .resizable()
-                    .frame(width: 100, height: 100)
-                    .clipShape(.circle)
+        VStack(alignment: .leading) {
+            Image("user")
+                .resizable()
+                .frame(width: 100, height: 100)
+                .clipShape(.circle)
                 
-                Text(gmail)
-                    .font(.callout)
-                    .foregroundStyle(.page)
+            Text(gmail)
+                .font(.callout)
+                .foregroundStyle(.page)
                     
-            }.frame(maxWidth: .infinity,alignment: .leading)
+        }.frame(maxWidth: .infinity, alignment: .leading)
             .foregroundStyle(.event)
             
-            
-          
-            
-        
-        
     }
 }
 

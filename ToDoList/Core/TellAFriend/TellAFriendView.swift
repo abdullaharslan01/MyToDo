@@ -8,11 +8,35 @@
 import SwiftUI
 
 struct TellAFriendView: View {
+    @Environment(Router.self) var router
+    
+    @Environment(\.openURL) var openURL
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 0) {
+            HeaderView(title: "Thanks for your support! 🚀") {
+                router.navigateBack()
+            }
+
+            Image("logo")
+                .resizable()
+                .frame(height: 400)
+                .colorMultiply(.tdPrimary)
+            
+         
+            
+            MainButtonView("Share With Your Friend") {
+                openURL(URL(string: "https://github.com/abdullaharslan01")!)
+            
+            }.padding(.horizontal)
+
+            Spacer()
+
+        }.background(.page)
+            .ignoresSafeArea()
     }
 }
 
 #Preview {
     TellAFriendView()
+        .environment(Router())
 }

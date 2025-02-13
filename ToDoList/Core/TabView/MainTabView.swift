@@ -24,6 +24,6 @@ struct MainTabView: View {
 }
 
 #Preview {
-    MainTabView(selectedMenu: .constant(.add), showMenu: .constant(false))
+    MainTabView(selectedMenu: .constant(.all), showMenu: .constant(false))
         .environment(Router())
 }

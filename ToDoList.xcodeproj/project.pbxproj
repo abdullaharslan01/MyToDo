@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F54EC77C2D5DEE9C00A0CBD5 /* FireStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54EC77B2D5DEE9C00A0CBD5 /* FireStoreService.swift */; };
 		F552BFFC2D5B394900A405FC /* SidebarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552BFFB2D5B394900A405FC /* SidebarItem.swift */; };
 		F552C08D2D5B495600A405FC /* CategoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0652D5B495600A405FC /* CategoryIconView.swift */; };
 		F552C08E2D5B495600A405FC /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0662D5B495600A405FC /* HeaderView.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F54EC77B2D5DEE9C00A0CBD5 /* FireStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreService.swift; sourceTree = "<group>"; };
 		F552BFFB2D5B394900A405FC /* SidebarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarItem.swift; sourceTree = "<group>"; };
 		F552C0652D5B495600A405FC /* CategoryIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIconView.swift; sourceTree = "<group>"; };
 		F552C0662D5B495600A405FC /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 			children = (
 				F59052E52D5C882500D1E9C7 /* DemoView.swift */,
 				F59052EA2D5C8A2D00D1E9C7 /* AuthService.swift */,
+				F54EC77B2D5DEE9C00A0CBD5 /* FireStoreService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F59052DF2D5C87CF00D1E9C7 /* Date.swift in Sources */,
+				F54EC77C2D5DEE9C00A0CBD5 /* FireStoreService.swift in Sources */,
 				F59052E02D5C87CF00D1E9C7 /* View+Ext.swift in Sources */,
 				F552C08D2D5B495600A405FC /* CategoryIconView.swift in Sources */,
 				F552C08E2D5B495600A405FC /* HeaderView.swift in Sources */,

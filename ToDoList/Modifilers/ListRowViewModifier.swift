@@ -13,6 +13,7 @@ struct ListRowViewModifier: ViewModifier {
             .padding(.horizontal)
             .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 5))
             .listRowBackground(Color.white)
+            
     }
 
 }

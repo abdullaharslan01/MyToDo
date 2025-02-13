@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseAuth
 
-struct AuthDataResulModel {
+struct AuthDataResulModel: Codable {
     let uid: String
     var email: String?
     var photoUrl: String?

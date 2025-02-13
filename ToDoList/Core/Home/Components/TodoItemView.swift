@@ -7,6 +7,18 @@
 
 import SwiftUI
 
+class Helper {
+    static let shared = Helper()
+    
+    func getCategoryFromId(_ id: String) -> Category {
+        if let category = Category.allCategory.first(where: {$0.id == id}) {
+            return category
+        }
+         
+        return Category.allCategory[0]
+    }
+}
+
 struct TodoItemView: View {
     var toDoItem: TodoItem
     var onTapGesture: () -> ()
@@ -15,7 +27,7 @@ struct TodoItemView: View {
         HStack {
             HStack {
                         
-                CategoryIconView(categoryItem: toDoItem.category, isSelected: false) {}
+                CategoryIconView(categoryItem: Helper.shared.getCategoryFromId(toDoItem.categoryId), isSelected: false) {}
                         
                 VStack(alignment: .leading) {
                     Text(toDoItem.title)

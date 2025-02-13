@@ -10,9 +10,8 @@ import SwiftUI
 struct RootView: View {
 
     @Environment(Router.self) var router
-    
-    
-    @State var vm  = RootViewModel()
+
+    @State var vm = RootViewModel()
 
     var body: some View {
 
@@ -22,29 +21,73 @@ struct RootView: View {
             ZStack {
 
                 if vm.userLoginState {
-                    
+
                     ZStack {
 
-                        HomeView(presentSideMenu: $vm.showMenu)
-                        
+                       
+                        HomeView()
+                            .onAppear {
+                                vm.selectedMenuOption = .all
+                            }
+                            
+                            
+
                         SideBarMenuView(isShowing: $vm.showMenu, selectedOption: $vm.selectedMenuOption)
-                    }.onChange(of: vm.selectedMenuOption) { oldValue, newValue in
-                        switch newValue {
-                        case .all : router.navigateHome()
-                        case .add : router.navigate(to: .addToDo)
-                        case .help: router.navigate(to: .helpAndFeedBack)
-                        case .settigns: router .navigate(to: .settings)
-                        case .tell: router.navigate(to: .tellAFriend)
-                        }
-                    }.onChange(of: vm.userLoginState) { oldValue, newValue in
-                        print("Login state was changed: \(newValue)")
                     }
                     
+                
+                    .onChange(of: vm.selectedMenuOption) { _, newValue in
+                        switch newValue {
+                        case .all:
+                            vm.selectedMenuOption = .all
+                        case .add: router.navigate(to: .addToDo)
+                        case .help: router.navigate(to: .helpAndFeedBack)
+                            vm.selectedMenuOption = .help
+                        case .settigns: router.navigate(to: .settings)
+                            vm.selectedMenuOption = .settigns
+                        case .tell: router.navigate(to: .tellAFriend)
+                            vm.selectedMenuOption = .tell
+                        }
+                    }
+
                 } else {
                     OnboardView()
                 }
 
-            }
+            }.toolbar(content: {
+
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        withAnimation {
+                            vm.showMenu.toggle()
+                        }
+                    } label: {
+                        Image(systemName: "line.3.horizontal")
+                            .font(.title3)
+                            .foregroundStyle(.page)
+
+                    }
+
+                }
+
+                ToolbarItem(placement: .principal) {
+                    Text(vm.currentDate.formattedWithDate())
+                        .font(.title3)
+                        .foregroundStyle(.page)
+                        .fontWeight(.semibold)
+                        .lineLimit(1)
+                }
+
+                ToolbarItem(placement: .topBarTrailing) {
+                    Image("user")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .clipShape(.circle)
+                }
+
+            })
+            .toolbarVisibility(vm.showMenu ? .hidden : .visible, for: .navigationBar)
+
             .onAppear(perform: {
                 vm.checkUserLoginState()
             })

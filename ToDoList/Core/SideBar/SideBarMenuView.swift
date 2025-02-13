@@ -39,9 +39,6 @@ struct SideBarMenuView: View {
                                 .padding(.leading)
                         }.frame(height: 200)
                         
-                     
-                            
-                        
                         VStack {
                             ForEach(SideMenuOptionModel.allCases, id: \.id) { option in
                                 
@@ -52,7 +49,7 @@ struct SideBarMenuView: View {
                                             isShowing.toggle()
                                         }
                                     }
-                                    .padding(.trailing,10)
+                                    .padding(.trailing, 10)
                                     .matchedGeometryEffect(id: option.id, in: animation)
                                     
                             }
@@ -60,15 +57,13 @@ struct SideBarMenuView: View {
                         
                         Spacer()
                         
-                       
-                        
                     }.frame(width: 290)
                         .background(.page)
                         .ignoresSafeArea()
                     
                     Spacer()
                 }.transition(.move(edge: .leading))
-                    .animation(.easeInOut, value: isShowing)
+                    
                 
             }
         }
@@ -76,5 +71,5 @@ struct SideBarMenuView: View {
 }
 
 #Preview {
-    SideBarMenuView(isShowing: .constant(true), selectedOption: .constant(.add))
+    SideBarMenuView(isShowing: .constant(true), selectedOption: .constant(.all))
 }

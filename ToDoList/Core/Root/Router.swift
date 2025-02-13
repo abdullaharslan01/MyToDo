@@ -20,6 +20,7 @@ class Router {
         case helpAndFeedBack
         case settings
         case tellAFriend
+    
     }
     
     func navigate(to destination: Destination) {

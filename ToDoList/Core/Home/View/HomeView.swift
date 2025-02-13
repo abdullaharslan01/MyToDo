@@ -13,8 +13,6 @@ struct HomeView: View {
 
     @Environment(Router.self) private var router
 
-    @Binding var presentSideMenu: Bool
-
     var headerView: some View {
         Image("allTaskHeader")
             .resizable()
@@ -27,35 +25,10 @@ struct HomeView: View {
 
         VStack {
 
-            HStack {
-                Button {
-                    withAnimation {
-                        presentSideMenu.toggle()
-                    }
-                } label: {
-                    Image(systemName: "line.3.horizontal")
-                        .font(.title)
-
-                }
-
-                Text(vm.currentDate.formattedWithDate())
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .lineLimit(1)
-                    .frame(maxWidth: .infinity, alignment: .center)
-
-                Image("user")
-                    .resizable()
-                    .frame(width: 40, height: 40)
-                    .clipShape(.circle)
-
-            }.foregroundStyle(.page)
-                .padding(.horizontal)
-                .padding(.bottom, 20)
-
             Text("My Todo List")
                 .foregroundStyle(.page)
                 .font(.system(size: 30, weight: .bold))
+                .padding(.top, 30)
 
         }
 
@@ -74,8 +47,15 @@ struct HomeView: View {
 
                 Section {
                     ForEach(vm.unComplated) { toDoItem in
-                        TodoItemView(toDoItem: toDoItem) {}
-                            .makeListRowItem()
+                        TodoItemView(toDoItem: toDoItem) {
+                            vm.updateCheckerState(toDoItem)
+                        }
+                        .makeListRowItem()
+                        .swipeActions {
+                            deleteAction(task: toDoItem)
+                            changeCheckState(task: toDoItem)
+
+                        }.transition(.move(edge: .leading))
 
                     }
                 }.clipShape(.rect(cornerRadius: 20))
@@ -83,23 +63,40 @@ struct HomeView: View {
                 Section {
 
                     ForEach(vm.complated) { toDoItem in
-                        TodoItemView(toDoItem: toDoItem) {}
-                            .cornerRadius(10)
-                            .makeListRowItem()
+                        TodoItemView(toDoItem: toDoItem) {
+                            vm.updateCheckerState(toDoItem)
+                        }
+                        .cornerRadius(10)
+                        .makeListRowItem()
+                        .swipeActions {
+                            deleteAction(task: toDoItem)
+                            changeCheckState(task: toDoItem)
+                        }
 
                     }
 
                 } header: {
-                    Text("Completed Tasks").foregroundStyle(.tdBody)
+
+                    if !vm.complated.isEmpty {
+                        Text("Completed Tasks").foregroundStyle(.tdBody)
+                    }
+
                 }
 
             }.listStyle(.insetGrouped)
                 .scrollContentBackground(.hidden)
-                .offset(y: -70)
+                .offset(y: -80)
                 .refreshable {}
                 .ignoresSafeArea(edges: .bottom)
 
-        }.safeAreaInset(edge: .bottom, content: {
+        }
+        .onAppear(perform: {
+            vm.addListener()
+        })
+        .onDisappear(perform: {
+            vm.listener = nil
+        })
+        .safeAreaInset(edge: .bottom, content: {
 
             MainButtonView("Add New Task") {
                 router.navigate(to: .addToDo)
@@ -111,11 +108,42 @@ struct HomeView: View {
         .ignoresSafeArea(edges: .top)
 
     }
+
+    private func deleteAction(task: TodoItem) -> some View {
+        Button(role: .destructive) {
+
+            withAnimation {
+                vm.deleteTask(task)
+            }
+
+        } label: {
+
+            Image(systemName: "wrongwaysign.fill")
+
+        }
+        .tint(.red)
+    }
+
+    private func changeCheckState(task: TodoItem) -> some View {
+        Button {
+
+            withAnimation {
+                vm.updateCheckerState(task)
+            }
+
+        } label: {
+            VStack {
+
+                 Text(task.isCompleted ? "Uncompleted" : "Complated")
+            }
+        }
+        .tint(Color(red: 255/255, green: 128/255, blue: 0/255))
+    }
 }
 
 #Preview {
     NavigationStack {
-        HomeView(presentSideMenu: .constant(false))
+        HomeView()
             .environment(Router())
 
     }

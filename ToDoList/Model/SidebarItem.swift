@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 enum SideMenuOptionModel: Int, CaseIterable, Hashable, Codable {
     case all
     case add
@@ -50,4 +49,3 @@ enum SideMenuOptionModel: Int, CaseIterable, Hashable, Codable {
     }
     
 }
-

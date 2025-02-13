@@ -36,6 +36,6 @@ struct SideBarMenuRowView: View {
 }
 
 #Preview {
-    SideBarMenuRowView(sideBarMenuItem: .tell, selectedOption: .constant(.add))
+    SideBarMenuRowView(sideBarMenuItem: .tell, selectedOption: .constant(.all))
         .padding(.horizontal)
 }

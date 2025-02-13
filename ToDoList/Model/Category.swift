@@ -37,8 +37,6 @@ enum CategoryColor: Codable, Hashable {
     
 }
 
-
-
 extension Category {
     static let allCategory: [Category] = [
         .init(id: "0", name: "Task", iconName: "task", color: .task),
