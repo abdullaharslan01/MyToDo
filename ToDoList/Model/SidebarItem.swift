@@ -11,7 +11,6 @@ enum SideMenuOptionModel: Int, CaseIterable, Hashable, Codable {
     case all
     case add
     case settigns
-    case help
     case tell
     
     var title: String {
@@ -22,8 +21,6 @@ enum SideMenuOptionModel: Int, CaseIterable, Hashable, Codable {
             return "Add Todo"
         case .settigns:
             return "Settings"
-        case .help:
-            return "Help and Feedback"
         case .tell:
             return "Tell a Friend"
         }
@@ -37,8 +34,6 @@ enum SideMenuOptionModel: Int, CaseIterable, Hashable, Codable {
             return "plus.circle"
         case .settigns:
             return "gear"
-        case .help:
-            return "questionmark.circle"
         case .tell:
             return "person.wave.2"
         }

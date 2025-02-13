@@ -29,6 +29,7 @@ struct RootView: View {
                             .onAppear {
                                 vm.selectedMenuOption = .all
                             }
+                            .offset(x: vm.showMenu ? 290 : 0)
                             
                             
 
@@ -41,8 +42,7 @@ struct RootView: View {
                         case .all:
                             vm.selectedMenuOption = .all
                         case .add: router.navigate(to: .addToDo)
-                        case .help: router.navigate(to: .helpAndFeedBack)
-                            vm.selectedMenuOption = .help
+
                         case .settigns: router.navigate(to: .settings)
                             vm.selectedMenuOption = .settigns
                         case .tell: router.navigate(to: .tellAFriend)
@@ -83,6 +83,9 @@ struct RootView: View {
                         .resizable()
                         .frame(width: 40, height: 40)
                         .clipShape(.circle)
+                        .onTapGesture {
+                            router.navigate(to: .settings)
+                        }
                 }
 
             })
@@ -105,9 +108,7 @@ struct RootView: View {
                 case .addToDo:
                     AddNewTaskView()
                         .navigationBarBackButtonHidden()
-                case .helpAndFeedBack:
-                    HelpView()
-                        .navigationBarBackButtonHidden()
+            
                 case .settings:
                     SettignsView()
                         .navigationBarBackButtonHidden()

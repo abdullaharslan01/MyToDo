@@ -43,51 +43,62 @@ struct HomeView: View {
 
             }
 
-            List {
+            ZStack {
 
-                Section {
-                    ForEach(vm.unComplated) { toDoItem in
-                        TodoItemView(toDoItem: toDoItem) {
-                            vm.updateCheckerState(toDoItem)
-                        }
-                        .makeListRowItem()
-                        .swipeActions {
-                            deleteAction(task: toDoItem)
-                            changeCheckState(task: toDoItem)
-
-                        }.transition(.move(edge: .leading))
-
-                    }
-                }.clipShape(.rect(cornerRadius: 20))
-
-                Section {
-
-                    ForEach(vm.complated) { toDoItem in
-                        TodoItemView(toDoItem: toDoItem) {
-                            vm.updateCheckerState(toDoItem)
-                        }
-                        .cornerRadius(10)
-                        .makeListRowItem()
-                        .swipeActions {
-                            deleteAction(task: toDoItem)
-                            changeCheckState(task: toDoItem)
-                        }
-
-                    }
-
-                } header: {
-
-                    if !vm.complated.isEmpty {
-                        Text("Completed Tasks").foregroundStyle(.tdBody)
-                    }
-
+                if vm.unComplated.isEmpty && vm.complated.isEmpty {
+                    EmtyView().offset(y:-80)
                 }
 
-            }.listStyle(.insetGrouped)
-                .scrollContentBackground(.hidden)
-                .offset(y: -80)
-                .refreshable {}
-                .ignoresSafeArea(edges: .bottom)
+                List {
+
+                    Section {
+                        ForEach(vm.unComplated) { toDoItem in
+                            TodoItemView(toDoItem: toDoItem) {
+
+                                withAnimation {
+                                    vm.updateCheckerState(toDoItem)
+                                }
+
+                            }
+                            .makeListRowItem()
+                            .swipeActions {
+                                deleteAction(task: toDoItem)
+                                changeCheckState(task: toDoItem)
+
+                            }
+
+                        }
+                    }.clipShape(.rect(cornerRadius: 20))
+
+                    Section {
+
+                        ForEach(vm.complated) { toDoItem in
+                            TodoItemView(toDoItem: toDoItem) {
+                                vm.updateCheckerState(toDoItem)
+                            }
+                            .cornerRadius(10)
+                            .makeListRowItem()
+                            .swipeActions {
+                                deleteAction(task: toDoItem)
+                                changeCheckState(task: toDoItem)
+                            }
+
+                        }
+
+                    } header: {
+
+                        if !vm.complated.isEmpty {
+                            Text("Completed Tasks").foregroundStyle(.tdBody)
+                        }
+
+                    }
+
+                }.listStyle(.insetGrouped)
+                    .scrollContentBackground(.hidden)
+                    .offset(y: -80)
+                    .refreshable {}
+                    .ignoresSafeArea(edges: .bottom)
+            }
 
         }
         .onAppear(perform: {
@@ -134,7 +145,7 @@ struct HomeView: View {
         } label: {
             VStack {
 
-                 Text(task.isCompleted ? "Uncompleted" : "Complated")
+                Text(task.isCompleted ? "Uncompleted" : "Complated")
             }
         }
         .tint(Color(red: 255/255, green: 128/255, blue: 0/255))

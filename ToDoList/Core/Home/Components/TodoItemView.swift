@@ -42,6 +42,14 @@ struct TodoItemView: View {
                             .opacity(0.7)
                             .strikethrough(toDoItem.isCompleted)
                     }
+                    
+                    if let note = toDoItem.notes {
+                        Text(note)
+                            .font(.caption)
+                            .lineLimit(4)
+                            .multilineTextAlignment(.leading)
+                    }
+                    
                             
                 }
             }.frame(maxWidth: .infinity, alignment: .leading)
@@ -58,5 +66,11 @@ struct TodoItemView: View {
         .onTapGesture {
             onTapGesture()
         }
+    }
+}
+
+#Preview {
+    TodoItemView(toDoItem: .sampleData[0]) {
+        
     }
 }

@@ -24,7 +24,9 @@ struct SideBarMenuView: View {
                     .opacity(0.3)
                     .ignoresSafeArea()
                     .onTapGesture {
-                        isShowing.toggle()
+                        withAnimation {
+                            isShowing.toggle()
+                        }
                     }
 
                 HStack {

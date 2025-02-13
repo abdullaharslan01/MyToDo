@@ -17,7 +17,6 @@ class Router {
         case signIn
         case signUp
         case addToDo
-        case helpAndFeedBack
         case settings
         case tellAFriend
     

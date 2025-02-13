@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F54EC77C2D5DEE9C00A0CBD5 /* FireStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54EC77B2D5DEE9C00A0CBD5 /* FireStoreService.swift */; };
+		F54EC77E2D5E041200A0CBD5 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F54EC77D2D5E041200A0CBD5 /* Launch.storyboard */; };
+		F54EC79B2D5E18E900A0CBD5 /* complated.json in Resources */ = {isa = PBXBuildFile; fileRef = F54EC7992D5E18E900A0CBD5 /* complated.json */; };
+		F54EC79C2D5E18E900A0CBD5 /* emty.json in Resources */ = {isa = PBXBuildFile; fileRef = F54EC79A2D5E18E900A0CBD5 /* emty.json */; };
 		F552BFFC2D5B394900A405FC /* SidebarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552BFFB2D5B394900A405FC /* SidebarItem.swift */; };
 		F552C08D2D5B495600A405FC /* CategoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0652D5B495600A405FC /* CategoryIconView.swift */; };
 		F552C08E2D5B495600A405FC /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0662D5B495600A405FC /* HeaderView.swift */; };
@@ -19,7 +22,6 @@
 		F552C0942D5B495600A405FC /* TodoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0702D5B495600A405FC /* TodoItemView.swift */; };
 		F552C0952D5B495600A405FC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0722D5B495600A405FC /* HomeView.swift */; };
 		F552C0962D5B495600A405FC /* AllTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0742D5B495600A405FC /* AllTaskViewModel.swift */; };
-		F552C0972D5B495600A405FC /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0772D5B495600A405FC /* HelpView.swift */; };
 		F552C0982D5B495600A405FC /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C0792D5B495600A405FC /* SignInView.swift */; };
 		F552C0992D5B495600A405FC /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C07A2D5B495600A405FC /* SignUpView.swift */; };
 		F552C09A2D5B495600A405FC /* GetStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552C07D2D5B495600A405FC /* GetStartedView.swift */; };
@@ -57,6 +59,9 @@
 
 /* Begin PBXFileReference section */
 		F54EC77B2D5DEE9C00A0CBD5 /* FireStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreService.swift; sourceTree = "<group>"; };
+		F54EC77D2D5E041200A0CBD5 /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
+		F54EC7992D5E18E900A0CBD5 /* complated.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = complated.json; sourceTree = "<group>"; };
+		F54EC79A2D5E18E900A0CBD5 /* emty.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = emty.json; sourceTree = "<group>"; };
 		F552BFFB2D5B394900A405FC /* SidebarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarItem.swift; sourceTree = "<group>"; };
 		F552C0652D5B495600A405FC /* CategoryIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIconView.swift; sourceTree = "<group>"; };
 		F552C0662D5B495600A405FC /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -68,7 +73,6 @@
 		F552C0702D5B495600A405FC /* TodoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemView.swift; sourceTree = "<group>"; };
 		F552C0722D5B495600A405FC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F552C0742D5B495600A405FC /* AllTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTaskViewModel.swift; sourceTree = "<group>"; };
-		F552C0772D5B495600A405FC /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		F552C0792D5B495600A405FC /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		F552C07A2D5B495600A405FC /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		F552C07D2D5B495600A405FC /* GetStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedView.swift; sourceTree = "<group>"; };
@@ -221,14 +225,6 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		F552C0782D5B495600A405FC /* HelpAndFeedBack */ = {
-			isa = PBXGroup;
-			children = (
-				F552C0772D5B495600A405FC /* HelpView.swift */,
-			);
-			path = HelpAndFeedBack;
-			sourceTree = "<group>";
-		};
 		F552C07B2D5B495600A405FC /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,7 +305,6 @@
 				F552C07C2D5B495600A405FC /* Login */,
 				F552C0762D5B495600A405FC /* Home */,
 				F552C06F2D5B495600A405FC /* AddNewTask */,
-				F552C0782D5B495600A405FC /* HelpAndFeedBack */,
 				F552C0852D5B495600A405FC /* Settigns */,
 				F552C0892D5B495600A405FC /* SideBar */,
 				F552C08B2D5B495600A405FC /* TellAFriend */,
@@ -362,6 +357,8 @@
 		F5887C2F2D53713F00746AD0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F54EC7992D5E18E900A0CBD5 /* complated.json */,
+				F54EC79A2D5E18E900A0CBD5 /* emty.json */,
 				F5887C2E2D53713F00746AD0 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -381,6 +378,7 @@
 				F5887C2D2D53713F00746AD0 /* Preview Content */,
 				F5887C2F2D53713F00746AD0 /* Resources */,
 				F59052DA2D5C879D00D1E9C7 /* GoogleService-Info.plist */,
+				F54EC77D2D5E041200A0CBD5 /* Launch.storyboard */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -504,8 +502,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F54EC79B2D5E18E900A0CBD5 /* complated.json in Resources */,
+				F54EC79C2D5E18E900A0CBD5 /* emty.json in Resources */,
 				F5887C322D53713F00746AD0 /* Preview Assets.xcassets in Resources */,
 				F5887C332D53713F00746AD0 /* Assets.xcassets in Resources */,
+				F54EC77E2D5E041200A0CBD5 /* Launch.storyboard in Resources */,
 				F59052DB2D5C879D00D1E9C7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,7 +534,6 @@
 				F552C0952D5B495600A405FC /* HomeView.swift in Sources */,
 				F552C0962D5B495600A405FC /* AllTaskViewModel.swift in Sources */,
 				F59052F32D5C95FD00D1E9C7 /* AlertType.swift in Sources */,
-				F552C0972D5B495600A405FC /* HelpView.swift in Sources */,
 				F552C0982D5B495600A405FC /* SignInView.swift in Sources */,
 				F552C0992D5B495600A405FC /* SignUpView.swift in Sources */,
 				F59052F52D5C960C00D1E9C7 /* AuthDataResulModel.swift in Sources */,
@@ -690,12 +690,12 @@
 				DEVELOPMENT_TEAM = T89868475G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ToDoList/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "My ToDo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -720,12 +720,12 @@
 				DEVELOPMENT_TEAM = T89868475G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ToDoList/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "My ToDo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
