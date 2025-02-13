@@ -5,6 +5,7 @@
 //  Created by abdullah on 06.02.2025.
 //
 
+import Lottie
 import SwiftUI
 
 struct HomeView: View {
@@ -46,7 +47,7 @@ struct HomeView: View {
             ZStack {
 
                 if vm.unComplated.isEmpty && vm.complated.isEmpty {
-                    EmtyView().offset(y:-80)
+                    EmtyView().offset(y: -80)
                 }
 
                 List {
@@ -98,6 +99,17 @@ struct HomeView: View {
                     .offset(y: -80)
                     .refreshable {}
                     .ignoresSafeArea(edges: .bottom)
+
+                if vm.complatedClicked {
+
+                    LottieView(animation: .named("complated"))
+                        .playing(loopMode: .playOnce)
+                        .animationDidFinish { _ in
+                            vm.complatedClicked = false
+                        }.offset(y: -80)
+                        .id(vm.animationID)
+
+                }
             }
 
         }

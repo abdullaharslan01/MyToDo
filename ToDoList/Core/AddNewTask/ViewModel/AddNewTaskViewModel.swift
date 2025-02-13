@@ -10,6 +10,7 @@ import Observation
 
 @Observable
 class AddNewTaskViewModel {
+
     var taskTitle: String = ""
     var userSelectedDate: Date = .init()
     var notes: String = ""
@@ -21,6 +22,8 @@ class AddNewTaskViewModel {
     var isAddLoadingState: Bool = false
 
     var alertPresentedState: Bool = false
+
+    var lottie = UUID()
 
     var currentAlert: AlertType = .success(title: "", message: "")
 
@@ -45,6 +48,7 @@ class AddNewTaskViewModel {
         }
 
         isAddLoadingState = true
+        lottie = UUID()
         Task {
             do {
                 try await FirestoreService.shared.createNewTask(task)
@@ -52,9 +56,9 @@ class AddNewTaskViewModel {
 
             } catch {
                 currentAlert = .error(title: "Error", message: error.localizedDescription)
+                alertPresentedState.toggle()
             }
             isAddLoadingState = false
-            alertPresentedState.toggle()
 
         }
     }

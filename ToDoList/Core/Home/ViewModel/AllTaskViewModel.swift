@@ -19,7 +19,8 @@ class AllTaskViewModel {
             self.filterCheckState()
         }
     }
-
+    var animationID = UUID()
+    var complatedClicked: Bool = false
     var complated: [TodoItem] = []
     var unComplated: [TodoItem] = []
 
@@ -31,6 +32,14 @@ class AllTaskViewModel {
     }
 
     func updateCheckerState(_ task: TodoItem) {
+        
+        if !task.isCompleted {
+            
+            complatedClicked.toggle()
+            animationID = UUID()
+        }
+  
+        
         Task {
             do {
                 try await FirestoreService.shared.updateCheckState(task)

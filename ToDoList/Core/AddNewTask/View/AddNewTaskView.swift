@@ -5,6 +5,7 @@
 //  Created by abdullah on 06.02.2025.
 //
 
+import Lottie
 import SwiftUI
 
 enum FieldState: Hashable {
@@ -13,6 +14,8 @@ enum FieldState: Hashable {
 }
 
 struct AddNewTaskView: View {
+ 
+    
     
     @State var vm = AddNewTaskViewModel()
     
@@ -113,20 +116,20 @@ struct AddNewTaskView: View {
         ZStack {
             VStack(spacing: 20) {
                 headerView
-                   
+                
                 ScrollView {
                     VStack(spacing: 20) {
                         taskTitleSection
                         cateegorySection
                         selectDateTimeSection
-                              
+                        
                         addNoteSection
-                                       
+                        
                         Rectangle()
                             .fill(.clear)
-                                    
+                        
                             .frame(height: focused == nil ? 1 : 300)
-                                    
+                        
                     }.ignoresSafeArea(.keyboard)
                         .scrollTargetLayout()
                 }.scrollPosition($scrollPosition)
@@ -141,9 +144,9 @@ struct AddNewTaskView: View {
                             scrollPosition.scrollTo(y: 0)
                         }
                     }
-                        
+                
             }.background(.page)
-                        
+            
                 .safeAreaInset(edge: .bottom, content: {
                     MainButtonView("Save") {
                         vm.addNewTask()
@@ -156,7 +159,7 @@ struct AddNewTaskView: View {
                     case .error(_, _), .warning:
                         return vm.currentAlert.alert
                     case .success(let title, let message):
-                                
+                        
                         return Alert(title: Text(title), message: Text(message), dismissButton: .cancel(Text("OK"), action: {
                             self.router.navigateBack()
                         }))
@@ -166,7 +169,7 @@ struct AddNewTaskView: View {
                 .ignoresSafeArea()
                 .padding(.horizontal)
                 .overlay(content: {
-                  
+                    
                     if vm.isAddLoadingState {
                         
                         ProgressView()
@@ -178,7 +181,7 @@ struct AddNewTaskView: View {
                 .sheet(isPresented: $vm.isShowingDatePicker) {
                     SelectDateView(date: vm.userSelectedDate) { selectedDate in
                         vm.userSelectedDate = selectedDate
-                                
+                        
                     }
                     .presentationDetents([.fraction(0.75), .large])
                 }
@@ -187,6 +190,17 @@ struct AddNewTaskView: View {
                         vm.userSelectedDate = selectedDate
                     }.presentationDetents([.fraction(0.50), .large])
                 }
+                .overlay {
+                    if vm.isAddLoadingState {
+                        LottieView(animation: .named("success"))
+                            .playing(loopMode: .playOnce)
+                            .animationDidFinish { _ in
+                                vm.alertPresentedState.toggle()
+                                                        
+                            }.id(vm.lottie)
+                    }
+                }
+         
         }
         
     }

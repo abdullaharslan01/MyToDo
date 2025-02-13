@@ -54,6 +54,7 @@
 		F59052F32D5C95FD00D1E9C7 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59052F22D5C95FD00D1E9C7 /* AlertType.swift */; };
 		F59052F52D5C960C00D1E9C7 /* AuthDataResulModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59052F42D5C960C00D1E9C7 /* AuthDataResulModel.swift */; };
 		F59052FC2D5CA66500D1E9C7 /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59052FB2D5CA66500D1E9C7 /* UIApplication+Ext.swift */; };
+		F5BFA9EC2D5E25F700BF5349 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = F5BFA9EB2D5E25F700BF5349 /* success.json */; };
 		F5C2A4912D551A00004547AD /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C2A4902D551A00004547AD /* Category.swift */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		F59052F22D5C95FD00D1E9C7 /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		F59052F42D5C960C00D1E9C7 /* AuthDataResulModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataResulModel.swift; sourceTree = "<group>"; };
 		F59052FB2D5CA66500D1E9C7 /* UIApplication+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
+		F5BFA9EB2D5E25F700BF5349 /* success.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
 		F5C2A4902D551A00004547AD /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -357,6 +359,7 @@
 		F5887C2F2D53713F00746AD0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F5BFA9EB2D5E25F700BF5349 /* success.json */,
 				F54EC7992D5E18E900A0CBD5 /* complated.json */,
 				F54EC79A2D5E18E900A0CBD5 /* emty.json */,
 				F5887C2E2D53713F00746AD0 /* Assets.xcassets */,
@@ -506,6 +509,7 @@
 				F54EC79C2D5E18E900A0CBD5 /* emty.json in Resources */,
 				F5887C322D53713F00746AD0 /* Preview Assets.xcassets in Resources */,
 				F5887C332D53713F00746AD0 /* Assets.xcassets in Resources */,
+				F5BFA9EC2D5E25F700BF5349 /* success.json in Resources */,
 				F54EC77E2D5E041200A0CBD5 /* Launch.storyboard in Resources */,
 				F59052DB2D5C879D00D1E9C7 /* GoogleService-Info.plist in Resources */,
 			);

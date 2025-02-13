@@ -5,16 +5,17 @@
 //  Created by abdullah on 13.02.2025.
 //
 
-import SwiftUI
 import Lottie
+import SwiftUI
 
 struct EmtyView: View {
     var body: some View {
-        VStack(spacing: 16) {
+        VStack {
+
             LottieView(animation: .named("emty"))
                 .looping()
 
-            VStack(spacing: 20) {
+            VStack(spacing: 10) {
                 Text("No Tasks Available")
                     .font(.title2)
                     .fontWeight(.bold)
