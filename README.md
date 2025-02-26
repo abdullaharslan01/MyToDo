@@ -1,4 +1,4 @@
-# My ToDo Item
+# My ToDo List
 
 My ToDo Item is an iOS application designed to help you add and manage simple daily tasks. Built using SwiftUI, the app integrates with Firebase for data storage. Currently in the MVP (Minimum Viable Product) stage, it is designed to quickly address basic needs.
 
